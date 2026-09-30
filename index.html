@@ -39,7 +39,7 @@
         <span class="training-label">安全操作トレーニング</span>
         <strong id="progressText">第1問 / 3問</strong>
       </div>
-      <span class="status-pill">練習用</span>
+      <div class="header-tools"><button id="teacherResetButton" class="teacher-reset-button" type="button">講師用リセット</button><span class="status-pill">練習用</span></div>
     </header>
 
     <div id="articleView" class="article-wrap">
@@ -305,6 +305,23 @@
       <button id="q3ReturnArticleButton" class="primary-button" type="button">
         振り返りを見る
       </button>
+    </div>
+  </div>
+
+
+  <div id="teacherResetOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="teacherResetTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol reset-symbol">↺</div>
+      <h2 id="teacherResetTitle">最初からやり直しますか？</h2>
+      <p>この端末に保存されているトレーニングの進捗をリセットします。</p>
+      <div class="lesson-box">
+        <strong>講師用</strong>
+        <p>受講者が途中で詰まったときや、次の受講者へ端末を渡すときに使います。</p>
+      </div>
+      <div class="dual-buttons">
+        <button id="teacherResetCancel" class="secondary-button" type="button">キャンセル</button>
+        <button id="teacherResetConfirm" class="danger-button" type="button">最初に戻す</button>
+      </div>
     </div>
   </div>
 

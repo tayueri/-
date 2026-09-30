@@ -28,6 +28,24 @@
     }
   };
 
+  function resetAllProgress() {
+    try { sessionStorage.clear(); } catch (e) {}
+    ["q3Active","q3Visited","q3Touched","q3Cleared"].forEach((key) => shared.remove(key));
+  }
+
+  function handleClassroomEntry() {
+    if (page !== "main") return;
+    const params = new URLSearchParams(window.location.search);
+    const startFresh = params.get("start") === "1";
+    const forceReset = params.get("reset") === "1";
+
+    if (startFresh || forceReset) {
+      resetAllProgress();
+      const cleanUrl = window.location.pathname + window.location.hash;
+      window.history.replaceState({}, "", cleanUrl);
+    }
+  }
+
   function show(element) {
     if (element) element.classList.remove("is-hidden");
   }
@@ -45,20 +63,7 @@
   }
 
   function clearTrainingState() {
-    [
-      "trainingStarted",
-      "q1Cleared",
-      "q2Active",
-      "q2Visited",
-      "q2Cleared"
-    ].forEach((key) => store.remove(key));
-
-    [
-      "q3Active",
-      "q3Visited",
-      "q3Touched",
-      "q3Cleared"
-    ].forEach((key) => shared.remove(key));
+    resetAllProgress();
   }
 
   function setupMainPage() {
@@ -95,6 +100,10 @@
     const q3ClearNote = document.getElementById("q3ClearNote");
     const completionSection = document.getElementById("completionSection");
     const restartButton = document.getElementById("restartButton");
+    const teacherResetButton = document.getElementById("teacherResetButton");
+    const teacherResetOverlay = document.getElementById("teacherResetOverlay");
+    const teacherResetCancel = document.getElementById("teacherResetCancel");
+    const teacherResetConfirm = document.getElementById("teacherResetConfirm");
 
     let q1Started = false;
     let q1Cleared = store.get("q1Cleared") === "1";
@@ -262,7 +271,22 @@
       window.location.reload();
     });
 
-    [scenarioLayer, ngOverlay, correctOverlay, q2CorrectOverlay, q3CorrectOverlay].forEach((overlay) => {
+    teacherResetButton.addEventListener("click", () => {
+      show(teacherResetOverlay);
+      lockPageScroll();
+    });
+
+    teacherResetCancel.addEventListener("click", () => {
+      hide(teacherResetOverlay);
+      unlockPageScroll();
+    });
+
+    teacherResetConfirm.addEventListener("click", () => {
+      clearTrainingState();
+      window.location.href = "index.html";
+    });
+
+    [scenarioLayer, ngOverlay, correctOverlay, q2CorrectOverlay, q3CorrectOverlay, teacherResetOverlay].forEach((overlay) => {
       overlay.addEventListener("click", (event) => {
         if (event.target === overlay) event.preventDefault();
       });
@@ -357,6 +381,8 @@
       if (event.target === q3NgOverlay) event.preventDefault();
     });
   }
+
+  handleClassroomEntry();
 
   if (page === "main") {
     setupMainPage();
