@@ -113,24 +113,24 @@
   </main>
 
   <!-- 第1問 広告 -->
-  <div id="adOverlay" class="overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="adTitle">
-    <div class="ad-card">
-      <button id="closeAdButton" class="ad-close" type="button" aria-label="広告を閉じる">×</button>
+  <div id="scenarioLayer" class="overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="scenarioTitle">
+    <div class="scenario-panel">
+      <button id="closeScenarioButton" class="scenario-dismiss" type="button" aria-label="広告を閉じる">×</button>
 
-      <button class="ad-click-area ad-content" type="button" data-hit="広告の画像">
-        <span class="ad-badge">PR</span>
-        <div class="ad-visual">
+      <button class="training-choice scenario-media" type="button" data-hit="広告の画像">
+        <span class="scenario-label">PR</span>
+        <div class="scenario-visual">
           <span>Kitchen<br>Comfort</span>
         </div>
       </button>
 
-      <button class="ad-click-area ad-copy" type="button" data-hit="広告の文章">
+      <button class="training-choice scenario-copy" type="button" data-hit="広告の文章">
         <small>暮らし応援キャンペーン</small>
-        <h2 id="adTitle">毎日の料理を<br>もっと便利に</h2>
+        <h2 id="scenarioTitle">毎日の料理を<br>もっと便利に</h2>
         <p>キッチンで役立つ便利アイテムをご紹介</p>
       </button>
 
-      <button class="ad-click-area ad-cta" type="button" data-hit="「詳しく見る」ボタン">
+      <button class="training-choice scenario-action" type="button" data-hit="「詳しく見る」ボタン">
         詳しく見る
       </button>
     </div>

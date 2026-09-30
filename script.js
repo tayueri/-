@@ -6,9 +6,9 @@
   const startButton = document.getElementById("startButton");
   const continueButton = document.getElementById("continueButton");
 
-  const adOverlay = document.getElementById("adOverlay");
-  const closeAdButton = document.getElementById("closeAdButton");
-  const adClickAreas = document.querySelectorAll(".ad-click-area");
+  const scenarioLayer = document.getElementById("scenarioLayer");
+  const closeScenarioButton = document.getElementById("closeScenarioButton");
+  const trainingChoices = document.querySelectorAll(".training-choice");
 
   const ngOverlay = document.getElementById("ngOverlay");
   const hitTarget = document.getElementById("hitTarget");
@@ -52,32 +52,32 @@
     }
 
     q1Started = true;
-    show(adOverlay);
+    show(scenarioLayer);
     lockPageScroll();
   });
 
-  adClickAreas.forEach((area) => {
+  trainingChoices.forEach((area) => {
     area.addEventListener("click", () => {
       if (!q1Started || q1Cleared) return;
 
       const label = area.dataset.hit || "広告の中";
       hitTarget.textContent = label;
 
-      hide(adOverlay);
+      hide(scenarioLayer);
       show(ngOverlay);
     });
   });
 
   retryButton.addEventListener("click", () => {
     hide(ngOverlay);
-    show(adOverlay);
+    show(scenarioLayer);
   });
 
-  closeAdButton.addEventListener("click", () => {
+  closeScenarioButton.addEventListener("click", () => {
     if (!q1Started || q1Cleared) return;
 
     q1Cleared = true;
-    hide(adOverlay);
+    hide(scenarioLayer);
     show(correctOverlay);
   });
 
@@ -94,7 +94,7 @@
 
   // iOS Safariでダイアログ表示中に背景へ誤って触れないよう、
   // オーバーレイ外側のタップには何も割り当てない。
-  [adOverlay, ngOverlay, correctOverlay].forEach((overlay) => {
+  [scenarioLayer, ngOverlay, correctOverlay].forEach((overlay) => {
     overlay.addEventListener("click", (event) => {
       if (event.target === overlay) {
         event.preventDefault();

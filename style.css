@@ -351,7 +351,7 @@ button:focus-visible {
   background: rgba(16, 16, 16, .70);
 }
 
-.ad-card {
+.scenario-panel {
   position: relative;
   width: min(100%, 440px);
   overflow: hidden;
@@ -360,7 +360,7 @@ button:focus-visible {
   box-shadow: 0 24px 70px rgba(0,0,0,.35);
 }
 
-.ad-close {
+.scenario-dismiss {
   position: absolute;
   z-index: 3;
   top: 5px;
@@ -380,7 +380,7 @@ button:focus-visible {
   cursor: pointer;
 }
 
-.ad-click-area {
+.training-choice {
   display: block;
   width: 100%;
   padding: 0;
@@ -390,11 +390,11 @@ button:focus-visible {
   text-align: left;
 }
 
-.ad-content {
+.scenario-media {
   position: relative;
 }
 
-.ad-badge {
+.scenario-label {
   position: absolute;
   left: 12px;
   top: 10px;
@@ -406,7 +406,7 @@ button:focus-visible {
   font-size: 10px;
 }
 
-.ad-visual {
+.scenario-visual {
   display: grid;
   height: 180px;
   place-items: center;
@@ -421,28 +421,28 @@ button:focus-visible {
   text-align: center;
 }
 
-.ad-copy {
+.scenario-copy {
   padding: 22px 22px 8px;
   text-align: center;
 }
 
-.ad-copy small {
+.scenario-copy small {
   color: #7d776f;
   font-weight: 700;
 }
 
-.ad-copy h2 {
+.scenario-copy h2 {
   margin: 7px 0 6px;
   font-size: 29px;
   line-height: 1.25;
 }
 
-.ad-copy p {
+.scenario-copy p {
   margin: 0;
   color: #655f58;
 }
 
-.ad-cta {
+.scenario-action {
   width: calc(100% - 44px);
   min-height: 50px;
   margin: 18px 22px 24px;
