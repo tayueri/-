@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="main">
-  <!-- 安全確認画面 -->
   <section id="introScreen" class="screen intro-screen" aria-labelledby="introTitle">
     <div class="intro-card">
       <span class="eyebrow">iPhone Safari版・練習用</span>
@@ -34,7 +33,6 @@
     </div>
   </section>
 
-  <!-- 料理記事 -->
   <main id="trainingScreen" class="screen is-hidden">
     <header class="training-header">
       <div>
@@ -119,10 +117,70 @@
         </div>
 
         <section id="articleAfterQ2" class="recipe-section is-hidden">
-          <div class="next-stage-box">
-            <strong>ここまでで第2問の動作確認は完了です。</strong>
-            <p>第3問「怪しい警告画面」は次の実装で追加します。</p>
+          <h3>仕上げのコツ</h3>
+          <p>
+            最後に味を見て、酸味が強いときは少量の砂糖を加えると
+            まろやかに仕上がります。
+          </p>
+
+          <div class="article-tip">
+            <strong>関連記事</strong>
+            <p>料理中のスマホ活用について、もう少し詳しく紹介します。</p>
           </div>
+
+          <button id="openThirdScenarioButton" class="article-button" type="button">
+            関連記事を開く
+          </button>
+
+          <div id="q3OpenProblem" class="browser-problem is-hidden" role="status">
+            <strong>新しいタブを開けませんでした</strong>
+            <p>
+              Safariの設定などにより、新しいタブが開かなかった可能性があります。
+              この項目は実機確認が必要です。
+            </p>
+          </div>
+        </section>
+
+        <div id="q3ClearNote" class="clear-note is-hidden" aria-live="polite">
+          <strong>第3問クリア！</strong>
+          <span>怪しい画面の指示に従わず、元の記事へ戻れました。</span>
+        </div>
+
+        <section id="completionSection" class="completion-section is-hidden">
+          <p class="completion-kicker">トレーニング終了</p>
+          <h3>3つの安全操作を練習できました 🎉</h3>
+
+          <div class="summary-grid">
+            <div class="summary-card">
+              <span class="summary-number">1</span>
+              <strong>普通の広告</strong>
+              <p>広告を開く必要がなければ、適切な閉じる操作を確認する。</p>
+            </div>
+
+            <div class="summary-card">
+              <span class="summary-number">2</span>
+              <strong>×がないページ</strong>
+              <p>ページの中を触り続けず、ブラウザ側の「戻る」も確認する。</p>
+            </div>
+
+            <div class="summary-card">
+              <span class="summary-number">3</span>
+              <strong>怪しい警告</strong>
+              <p>画面内の指示に従わず、安全なページ側へ離れる。</p>
+            </div>
+          </div>
+
+          <blockquote class="final-message">
+            画面の中だけで解決しようとしなくても大丈夫。
+          </blockquote>
+
+          <p class="completion-note">
+            第3問で警告タブがまだ残っている場合は、そのタブも閉じてください。
+          </p>
+
+          <button id="restartButton" class="primary-button" type="button">
+            もう一度練習する
+          </button>
         </section>
       </article>
     </div>
@@ -221,6 +279,31 @@
 
       <button id="q2ReturnArticleButton" class="primary-button" type="button">
         記事を続ける
+      </button>
+    </div>
+  </div>
+
+  <!-- 第3問 正解 -->
+  <div id="q3CorrectOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="q3CorrectTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol ok-symbol">✓</div>
+      <h2 id="q3CorrectTitle">正解！</h2>
+      <p>警告画面の指示に従わず、元の記事へ戻ることができました。</p>
+
+      <div class="lesson-box">
+        <strong>今回のポイント</strong>
+        <p>
+          突然の警告では、画面の中にある「確認」「スキャン」などを
+          すぐ押さず、一度その画面から離れることを考えましょう。
+        </p>
+        <p class="caution">
+          ※この教材では、警告タブを「閉じた」のか「元のタブへ切り替えた」のかを
+          Webサイト側から断定していません。警告タブが残っている場合は閉じてください。
+        </p>
+      </div>
+
+      <button id="q3ReturnArticleButton" class="primary-button" type="button">
+        振り返りを見る
       </button>
     </div>
   </div>

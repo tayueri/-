@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>セキュリティに関するお知らせ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="scenario3" class="notice-page">
+  <main class="notice-stage">
+    <section class="notice-panel" aria-labelledby="noticeTitle">
+      <div class="notice-icon" aria-hidden="true">!</div>
+      <p class="notice-caption">セキュリティに関する通知</p>
+      <h1 id="noticeTitle">セキュリティに関する<br>問題が検出されました</h1>
+
+      <p class="notice-text">
+        このまま使用すると、データに問題が発生する可能性があります。
+        今すぐ確認してください。
+      </p>
+
+      <button class="scenario3-choice notice-primary" type="button" data-hit="「今すぐ確認」ボタン">
+        今すぐ確認
+      </button>
+
+      <button class="scenario3-choice notice-secondary" type="button" data-hit="「スキャンを開始」ボタン">
+        スキャンを開始
+      </button>
+
+      <p class="notice-small">
+        操作を続ける前に確認が必要です。
+      </p>
+    </section>
+  </main>
+
+  <div id="q3NgOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="q3NgTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol ng-symbol">×</div>
+      <h2 id="q3NgTitle">NG！</h2>
+      <p>警告画面の中にあるボタンを押しました。</p>
+
+      <div class="hit-box">
+        <span>あなたが押した場所</span>
+        <strong id="q3HitTarget">警告画面のボタン</strong>
+      </div>
+
+      <p class="feedback-explanation">
+        突然表示された警告では、画面内の指示にすぐ従わず、
+        まずその画面から離れる方法を考えてみましょう。
+      </p>
+
+      <button id="q3RetryButton" class="secondary-button" type="button">
+        もう一度やってみる
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -686,3 +686,173 @@ button:focus-visible {
   color: #8a847e;
   font-size: 12px;
 }
+
+
+/* STEP3: 第3問・最終振り返り */
+.browser-problem {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  color: #694f22;
+  background: #fff7e7;
+  border: 1px solid #ecd9ad;
+}
+
+.browser-problem p {
+  margin: 6px 0 0;
+}
+
+.notice-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(200, 44, 44, .10), transparent 30%),
+    #f4f4f4;
+}
+
+.notice-stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: max(24px, env(safe-area-inset-top)) 16px
+    max(24px, env(safe-area-inset-bottom));
+}
+
+.notice-panel {
+  width: min(100%, 520px);
+  padding: 28px 20px 22px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 20px 54px rgba(0,0,0,.18);
+  text-align: center;
+}
+
+.notice-icon {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 10px;
+  place-items: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #b73535;
+  font-size: 38px;
+  font-weight: 900;
+}
+
+.notice-caption {
+  margin: 0 0 4px;
+  color: #8d3434;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.notice-panel h1 {
+  margin: 0;
+  font-size: clamp(27px, 8vw, 38px);
+  line-height: 1.32;
+  color: #292929;
+}
+
+.notice-text {
+  margin: 18px auto 22px;
+  max-width: 430px;
+  color: #555;
+}
+
+.notice-primary,
+.notice-secondary {
+  display: block;
+  width: 100%;
+  min-height: 54px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.notice-primary {
+  border: 0;
+  color: #fff;
+  background: #b73535;
+}
+
+.notice-secondary {
+  margin-top: 12px;
+  border: 1px solid #d6baba;
+  color: #7c3030;
+  background: #fff7f7;
+}
+
+.notice-small {
+  margin: 16px 0 0;
+  color: #868686;
+  font-size: 12px;
+}
+
+.completion-section {
+  margin-top: 34px;
+  padding: 24px 18px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(0,0,0,.07);
+}
+
+.completion-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.completion-section h3 {
+  margin: 4px 0 20px;
+  padding: 0;
+  border: 0;
+  font-size: 25px;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.summary-card {
+  position: relative;
+  padding: 16px 14px 14px 58px;
+  border-radius: 14px;
+  background: #f7faf8;
+  border: 1px solid #dfe9e4;
+}
+
+.summary-card p {
+  margin: 5px 0 0;
+  color: #5c615e;
+}
+
+.summary-number {
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--accent);
+  font-weight: 800;
+}
+
+.final-message {
+  margin: 22px 0 14px;
+  padding: 18px 16px;
+  border-left: 4px solid var(--accent);
+  background: #f5f8f6;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.completion-note {
+  color: #5f5f5f;
+  font-size: 14px;
+}

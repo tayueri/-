@@ -2,6 +2,7 @@
   "use strict";
 
   const page = document.body.dataset.page || "main";
+  const LS = "safeTraining.";
 
   const store = {
     get(key) {
@@ -12,6 +13,18 @@
     },
     remove(key) {
       sessionStorage.removeItem(key);
+    }
+  };
+
+  const shared = {
+    get(key) {
+      return localStorage.getItem(LS + key);
+    },
+    set(key, value) {
+      localStorage.setItem(LS + key, value);
+    },
+    remove(key) {
+      localStorage.removeItem(LS + key);
     }
   };
 
@@ -29,6 +42,23 @@
 
   function unlockPageScroll() {
     document.body.style.overflow = "";
+  }
+
+  function clearTrainingState() {
+    [
+      "trainingStarted",
+      "q1Cleared",
+      "q2Active",
+      "q2Visited",
+      "q2Cleared"
+    ].forEach((key) => store.remove(key));
+
+    [
+      "q3Active",
+      "q3Visited",
+      "q3Touched",
+      "q3Cleared"
+    ].forEach((key) => shared.remove(key));
   }
 
   function setupMainPage() {
@@ -58,9 +88,18 @@
     const q2ClearNote = document.getElementById("q2ClearNote");
     const articleAfterQ2 = document.getElementById("articleAfterQ2");
 
+    const openThirdScenarioButton = document.getElementById("openThirdScenarioButton");
+    const q3OpenProblem = document.getElementById("q3OpenProblem");
+    const q3CorrectOverlay = document.getElementById("q3CorrectOverlay");
+    const q3ReturnArticleButton = document.getElementById("q3ReturnArticleButton");
+    const q3ClearNote = document.getElementById("q3ClearNote");
+    const completionSection = document.getElementById("completionSection");
+    const restartButton = document.getElementById("restartButton");
+
     let q1Started = false;
     let q1Cleared = store.get("q1Cleared") === "1";
     let q2Cleared = store.get("q2Cleared") === "1";
+    let q3Cleared = shared.get("q3Cleared") === "1";
 
     function refreshMainState() {
       const started = store.get("trainingStarted") === "1";
@@ -75,6 +114,7 @@
 
       q1Cleared = store.get("q1Cleared") === "1";
       q2Cleared = store.get("q2Cleared") === "1";
+      q3Cleared = shared.get("q3Cleared") === "1";
 
       if (q1Cleared) {
         q1ClearNote.classList.remove("is-hidden");
@@ -86,7 +126,13 @@
       if (q2Cleared) {
         q2ClearNote.classList.remove("is-hidden");
         articleAfterQ2.classList.remove("is-hidden");
-        progressText.textContent = "第3問 / 3問";
+        if (!q3Cleared) progressText.textContent = "第3問 / 3問";
+      }
+
+      if (q3Cleared) {
+        q3ClearNote.classList.remove("is-hidden");
+        completionSection.classList.remove("is-hidden");
+        progressText.textContent = "3問クリア";
       }
     }
 
@@ -105,7 +151,24 @@
       }
     }
 
+    function detectReturnFromThirdScenario() {
+      const active = shared.get("q3Active") === "1";
+      const visited = shared.get("q3Visited") === "1";
+      const touched = shared.get("q3Touched") === "1";
+      const alreadyCleared = shared.get("q3Cleared") === "1";
+
+      if (active && visited && !touched && !alreadyCleared) {
+        shared.set("q3Cleared", "1");
+        shared.remove("q3Active");
+        q3Cleared = true;
+        refreshMainState();
+        show(q3CorrectOverlay);
+        lockPageScroll();
+      }
+    }
+
     startButton.addEventListener("click", () => {
+      clearTrainingState();
       store.set("trainingStarted", "1");
       hide(introScreen);
       show(trainingScreen);
@@ -171,17 +234,56 @@
       q2ClearNote.scrollIntoView({ behavior: "smooth", block: "center" });
     });
 
-    [scenarioLayer, ngOverlay, correctOverlay, q2CorrectOverlay].forEach((overlay) => {
+    openThirdScenarioButton.addEventListener("click", () => {
+      if (!q2Cleared || q3Cleared) return;
+
+      shared.set("q3Active", "1");
+      shared.remove("q3Visited");
+      shared.remove("q3Touched");
+      hide(q3OpenProblem);
+
+      const newTab = window.open("notice.html", "_blank");
+
+      if (!newTab) {
+        shared.remove("q3Active");
+        show(q3OpenProblem);
+      }
+    });
+
+    q3ReturnArticleButton.addEventListener("click", () => {
+      hide(q3CorrectOverlay);
+      unlockPageScroll();
+      refreshMainState();
+      completionSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    restartButton.addEventListener("click", () => {
+      clearTrainingState();
+      window.location.reload();
+    });
+
+    [scenarioLayer, ngOverlay, correctOverlay, q2CorrectOverlay, q3CorrectOverlay].forEach((overlay) => {
       overlay.addEventListener("click", (event) => {
-        if (event.target === overlay) {
-          event.preventDefault();
-        }
+        if (event.target === overlay) event.preventDefault();
       });
     });
 
     window.addEventListener("pageshow", () => {
       refreshMainState();
       detectReturnFromSecondScenario();
+      detectReturnFromThirdScenario();
+    });
+
+    window.addEventListener("focus", () => {
+      refreshMainState();
+      detectReturnFromThirdScenario();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        refreshMainState();
+        detectReturnFromThirdScenario();
+      }
     });
 
     refreshMainState();
@@ -217,9 +319,42 @@
     });
 
     q2NgOverlay.addEventListener("click", (event) => {
-      if (event.target === q2NgOverlay) {
-        event.preventDefault();
-      }
+      if (event.target === q2NgOverlay) event.preventDefault();
+    });
+  }
+
+  function setupThirdScenarioPage() {
+    const active = shared.get("q3Active") === "1";
+
+    if (!active) {
+      window.location.replace("index.html");
+      return;
+    }
+
+    shared.set("q3Visited", "1");
+
+    const q3Choices = document.querySelectorAll(".scenario3-choice");
+    const q3NgOverlay = document.getElementById("q3NgOverlay");
+    const q3HitTarget = document.getElementById("q3HitTarget");
+    const q3RetryButton = document.getElementById("q3RetryButton");
+
+    q3Choices.forEach((choice) => {
+      choice.addEventListener("click", () => {
+        shared.set("q3Touched", "1");
+        q3HitTarget.textContent = choice.dataset.hit || "警告画面のボタン";
+        show(q3NgOverlay);
+        lockPageScroll();
+      });
+    });
+
+    q3RetryButton.addEventListener("click", () => {
+      shared.remove("q3Touched");
+      hide(q3NgOverlay);
+      unlockPageScroll();
+    });
+
+    q3NgOverlay.addEventListener("click", (event) => {
+      if (event.target === q3NgOverlay) event.preventDefault();
     });
   }
 
@@ -227,5 +362,7 @@
     setupMainPage();
   } else if (page === "scenario2") {
     setupSecondScenarioPage();
+  } else if (page === "scenario3") {
+    setupThirdScenarioPage();
   }
 })();
