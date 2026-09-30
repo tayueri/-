@@ -1,0 +1,545 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f7f4ee;
+  --paper: #ffffff;
+  --text: #262626;
+  --muted: #6f6a64;
+  --line: #e8e1d8;
+  --accent: #2f6e5b;
+  --accent-dark: #235345;
+  --soft-accent: #eaf3ef;
+  --danger: #b43c3c;
+  --danger-soft: #fff0f0;
+  --ok: #2f7c4f;
+  --ok-soft: #edf8f1;
+  --shadow: 0 14px 40px rgba(26, 23, 19, 0.16);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI",
+    "Yu Gothic", Meiryo, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.75;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(47, 110, 91, 0.35);
+  outline-offset: 3px;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.screen {
+  min-height: 100vh;
+}
+
+.intro-screen {
+  display: grid;
+  place-items: center;
+  padding: max(28px, env(safe-area-inset-top)) 18px
+    max(28px, env(safe-area-inset-bottom));
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.95), transparent 38%),
+    linear-gradient(155deg, #f7f4ee, #eef5f1);
+}
+
+.intro-card {
+  width: min(100%, 520px);
+  padding: 28px 22px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .04em;
+}
+
+.intro-card h1 {
+  margin: 0 0 14px;
+  font-size: clamp(26px, 7vw, 36px);
+  line-height: 1.35;
+}
+
+.lead {
+  margin: 0 0 20px;
+  font-size: 16px;
+}
+
+.safety-box {
+  margin: 20px 0 24px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #f6f8f7;
+  border: 1px solid #dfe9e4;
+}
+
+.safety-box strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.safety-box ul {
+  margin: 0;
+  padding-left: 1.25em;
+  color: #494949;
+}
+
+.primary-button,
+.secondary-button,
+.article-button {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 14px;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button {
+  color: white;
+  background: var(--accent);
+}
+
+.primary-button:active {
+  background: var(--accent-dark);
+}
+
+.secondary-button {
+  color: var(--text);
+  background: #f1f1f1;
+}
+
+.training-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
+  background: rgba(255,255,255,.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.training-header > div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.training-label {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.training-header strong {
+  font-size: 14px;
+}
+
+.status-pill {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--soft-accent);
+}
+
+.article-wrap {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+.instruction {
+  margin: 16px auto 0;
+  width: min(calc(100% - 32px), 680px);
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #514e49;
+  background: #fffaf0;
+  border: 1px solid #efe1bd;
+  font-size: 14px;
+}
+
+.recipe-article {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 24px 18px 40px;
+}
+
+.category {
+  margin: 4px 0 5px;
+  color: #99744f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.recipe-article h2 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 8vw, 40px);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+
+.article-meta {
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hero-photo {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  margin: 22px -18px;
+  background: linear-gradient(145deg, #ddd0bc, #bda98f);
+}
+
+.plate {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #bd493b 0 53%, #e0ded8 54% 70%, #f4f1ea 71% 100%);
+  box-shadow: 0 16px 30px rgba(0,0,0,.18);
+}
+
+.food-piece {
+  position: absolute;
+  width: 58px;
+  height: 46px;
+  border-radius: 47% 53% 48% 52%;
+  background: linear-gradient(135deg, #c47b55, #8a4d35);
+  box-shadow: inset -5px -5px 8px rgba(0,0,0,.12);
+}
+
+.piece-1 { left: 48px; top: 67px; transform: rotate(-12deg); }
+.piece-2 { right: 46px; top: 58px; transform: rotate(16deg); }
+.piece-3 { left: 82px; bottom: 47px; transform: rotate(5deg); }
+
+.herb {
+  position: absolute;
+  width: 25px;
+  height: 9px;
+  border-radius: 100% 0 100% 0;
+  background: #4e7b3d;
+}
+
+.herb-1 { left: 87px; top: 52px; transform: rotate(25deg); }
+.herb-2 { right: 64px; bottom: 63px; transform: rotate(-30deg); }
+
+.recipe-section {
+  margin-top: 28px;
+}
+
+.recipe-section h3 {
+  padding-bottom: 7px;
+  border-bottom: 2px solid #2e2b28;
+  font-size: 20px;
+}
+
+.ingredient-list {
+  margin: 0;
+}
+
+.ingredient-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ingredient-list dd {
+  margin: 0;
+}
+
+.steps {
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.steps li > span {
+  display: grid;
+  flex: 0 0 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--accent);
+  font-weight: 700;
+}
+
+.steps p {
+  margin: 2px 0 0;
+}
+
+.article-button {
+  margin-top: 24px;
+  color: var(--accent-dark);
+  background: white;
+  border: 2px solid var(--accent);
+}
+
+.clear-note,
+.next-stage-box {
+  margin-top: 22px;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.clear-note {
+  display: flex;
+  flex-direction: column;
+  background: var(--ok-soft);
+  border: 1px solid #cfe5d7;
+}
+
+.next-stage-box {
+  background: #f5f5f5;
+  border: 1px solid #e4e4e4;
+}
+
+.next-stage-box p {
+  margin-bottom: 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: max(14px, env(safe-area-inset-top)) 14px
+    max(14px, env(safe-area-inset-bottom));
+  background: rgba(16, 16, 16, .70);
+}
+
+.ad-card {
+  position: relative;
+  width: min(100%, 440px);
+  overflow: hidden;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+}
+
+.ad-close {
+  position: absolute;
+  z-index: 3;
+  top: 5px;
+  right: 5px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #333;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 2px 9px rgba(0,0,0,.18);
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ad-click-area {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+}
+
+.ad-content {
+  position: relative;
+}
+
+.ad-badge {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  z-index: 2;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: white;
+  background: rgba(0,0,0,.58);
+  font-size: 10px;
+}
+
+.ad-visual {
+  display: grid;
+  height: 180px;
+  place-items: center;
+  color: white;
+  background:
+    radial-gradient(circle at 24% 24%, rgba(255,255,255,.28), transparent 18%),
+    linear-gradient(140deg, #75978b, #314f46);
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  text-align: center;
+}
+
+.ad-copy {
+  padding: 22px 22px 8px;
+  text-align: center;
+}
+
+.ad-copy small {
+  color: #7d776f;
+  font-weight: 700;
+}
+
+.ad-copy h2 {
+  margin: 7px 0 6px;
+  font-size: 29px;
+  line-height: 1.25;
+}
+
+.ad-copy p {
+  margin: 0;
+  color: #655f58;
+}
+
+.ad-cta {
+  width: calc(100% - 44px);
+  min-height: 50px;
+  margin: 18px 22px 24px;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  background: #c16b3f;
+  font-weight: 800;
+  text-align: center;
+}
+
+.feedback-overlay {
+  background: rgba(24,24,24,.76);
+}
+
+.feedback-card {
+  width: min(100%, 460px);
+  padding: 26px 20px 22px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.feedback-card h2 {
+  margin: 6px 0;
+  font-size: 30px;
+}
+
+.feedback-symbol {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  margin: 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.ng-symbol {
+  background: var(--danger);
+}
+
+.ok-symbol {
+  background: var(--ok);
+}
+
+.hit-box,
+.lesson-box {
+  margin: 18px 0;
+  padding: 14px;
+  border-radius: 13px;
+  text-align: left;
+}
+
+.hit-box {
+  background: var(--danger-soft);
+  border: 1px solid #efd0d0;
+}
+
+.hit-box span {
+  display: block;
+  color: #756565;
+  font-size: 12px;
+}
+
+.hit-box strong {
+  display: block;
+  margin-top: 3px;
+}
+
+.lesson-box {
+  background: var(--ok-soft);
+  border: 1px solid #d1e6d8;
+}
+
+.lesson-box p {
+  margin: 8px 0 0;
+}
+
+.lesson-box .caution {
+  padding-top: 9px;
+  border-top: 1px solid #d1e6d8;
+  color: #555;
+  font-size: 13px;
+}
+
+.feedback-explanation {
+  text-align: left;
+}
+
+@media (min-width: 700px) {
+  .hero-photo {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 18px;
+  }
+}

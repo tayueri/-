@@ -2,66 +2,188 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f4ee">
   <title>ネット広告 安全操作トレーニング</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #222;
-    }
-
-    main {
-      max-width: 700px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 3px 14px rgba(0,0,0,.08);
-    }
-
-    h1 {
-      font-size: 26px;
-      margin-top: 0;
-    }
-
-    button {
-      width: 100%;
-      padding: 16px;
-      margin-top: 20px;
-      border: 0;
-      border-radius: 12px;
-      background: #1769e0;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <main>
-    <div class="card">
-      <h1>ネット広告 安全操作トレーニング</h1>
-
-      <p>
-        Webサイトを見ているときに表示される広告や警告画面を、
-        安全に判断する練習サイトです。
+  <!-- 安全確認画面 -->
+  <section id="introScreen" class="screen intro-screen" aria-labelledby="introTitle">
+    <div class="intro-card">
+      <span class="eyebrow">iPhone Safari版・練習用</span>
+      <h1 id="introTitle">ネット広告・警告画面<br>安全操作トレーニング</h1>
+      <p class="lead">
+        このサイトは、Web閲覧中に広告や警告画面が表示されたときの
+        安全な操作を練習するための教材です。
       </p>
 
-      <p>
-        このサイトに表示される警告や広告はすべて練習用です。
-      </p>
+      <div class="safety-box">
+        <strong>このサイト内はすべて模擬画面です</strong>
+        <ul>
+          <li>実際の電話は発信しません</li>
+          <li>支払い・購入は発生しません</li>
+          <li>アプリのインストールは行いません</li>
+          <li>個人情報の入力は求めません</li>
+        </ul>
+      </div>
 
-      <button onclick="alert('動作確認OK！')">
+      <button id="startButton" class="primary-button" type="button">
         トレーニングを始める
       </button>
     </div>
+  </section>
+
+  <!-- 料理記事 -->
+  <main id="trainingScreen" class="screen is-hidden">
+    <header class="training-header">
+      <div>
+        <span class="training-label">安全操作トレーニング</span>
+        <strong id="progressText">第1問 / 3問</strong>
+      </div>
+      <span class="status-pill">練習用</span>
+    </header>
+
+    <div id="articleView" class="article-wrap">
+      <div class="instruction">
+        このページを、普段のWebサイトと同じように読み進めてください。
+      </div>
+
+      <article class="recipe-article">
+        <p class="category">今日のかんたん晩ごはん</p>
+        <h2>フライパンひとつで簡単！<br>鶏肉のトマト煮</h2>
+        <p class="article-meta">調理時間 約25分　｜　2〜3人分</p>
+
+        <div class="hero-photo" role="img" aria-label="鶏肉のトマト煮をイメージした料理写真風の装飾">
+          <div class="plate">
+            <span class="food-piece piece-1"></span>
+            <span class="food-piece piece-2"></span>
+            <span class="food-piece piece-3"></span>
+            <span class="herb herb-1"></span>
+            <span class="herb herb-2"></span>
+          </div>
+        </div>
+
+        <p>
+          鶏もも肉とトマトを使った、忙しい日にも作りやすい煮込み料理です。
+          材料を順番に入れて煮るだけなので、料理初心者にもおすすめです。
+        </p>
+
+        <section class="recipe-section">
+          <h3>材料</h3>
+          <dl class="ingredient-list">
+            <div><dt>鶏もも肉</dt><dd>1枚</dd></div>
+            <div><dt>玉ねぎ</dt><dd>1/2個</dd></div>
+            <div><dt>カットトマト</dt><dd>200g</dd></div>
+            <div><dt>コンソメ</dt><dd>小さじ1</dd></div>
+            <div><dt>オリーブオイル</dt><dd>小さじ2</dd></div>
+          </dl>
+        </section>
+
+        <section class="recipe-section">
+          <h3>作り方</h3>
+          <ol class="steps">
+            <li><span>1</span><p>鶏肉を食べやすい大きさに切り、玉ねぎを薄切りにします。</p></li>
+            <li><span>2</span><p>フライパンにオリーブオイルを入れ、鶏肉の表面を焼きます。</p></li>
+          </ol>
+        </section>
+
+        <button id="continueButton" class="article-button" type="button">
+          続きを読む
+        </button>
+
+        <div id="q1ClearNote" class="clear-note is-hidden" aria-live="polite">
+          <strong>第1問クリア！</strong>
+          <span>記事の続きを読めるようになりました。</span>
+        </div>
+
+        <section id="articleAfterQ1" class="recipe-section is-hidden">
+          <ol class="steps" start="3">
+            <li><span>3</span><p>玉ねぎとトマトを加え、弱めの中火で10〜15分ほど煮込みます。</p></li>
+            <li><span>4</span><p>味を整えたら完成です。お好みでパセリを添えてください。</p></li>
+          </ol>
+
+          <div class="next-stage-box">
+            <strong>ここまでで第1問の動作確認は完了です。</strong>
+            <p>第2問「×のない広告ページ」は次の実装で追加します。</p>
+          </div>
+        </section>
+      </article>
+    </div>
   </main>
+
+  <!-- 第1問 広告 -->
+  <div id="adOverlay" class="overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="adTitle">
+    <div class="ad-card">
+      <button id="closeAdButton" class="ad-close" type="button" aria-label="広告を閉じる">×</button>
+
+      <button class="ad-click-area ad-content" type="button" data-hit="広告の画像">
+        <span class="ad-badge">PR</span>
+        <div class="ad-visual">
+          <span>Kitchen<br>Comfort</span>
+        </div>
+      </button>
+
+      <button class="ad-click-area ad-copy" type="button" data-hit="広告の文章">
+        <small>暮らし応援キャンペーン</small>
+        <h2 id="adTitle">毎日の料理を<br>もっと便利に</h2>
+        <p>キッチンで役立つ便利アイテムをご紹介</p>
+      </button>
+
+      <button class="ad-click-area ad-cta" type="button" data-hit="「詳しく見る」ボタン">
+        詳しく見る
+      </button>
+    </div>
+  </div>
+
+  <!-- NG表示 -->
+  <div id="ngOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="ngTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol ng-symbol">×</div>
+      <h2 id="ngTitle">NG！</h2>
+      <p>広告の中を押しました。</p>
+
+      <div class="hit-box">
+        <span>あなたが押した場所</span>
+        <strong id="hitTarget">広告の中</strong>
+      </div>
+
+      <p class="feedback-explanation">
+        記事へ戻りたいときは、広告内のボタンを押す前に、
+        まず閉じる操作があるか確認してみましょう。
+      </p>
+
+      <button id="retryButton" class="secondary-button" type="button">
+        もう一度やってみる
+      </button>
+    </div>
+  </div>
+
+  <!-- 正解表示 -->
+  <div id="correctOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="correctTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol ok-symbol">✓</div>
+      <h2 id="correctTitle">正解！</h2>
+      <p>広告を開かずに閉じることができました。</p>
+
+      <div class="lesson-box">
+        <strong>今回のポイント</strong>
+        <p>
+          明らかな通常広告を閉じたいときは、広告の中を開く前に
+          「×」や「閉じる」を確認します。
+        </p>
+        <p class="caution">
+          ※突然の警告など怪しい画面では、画面内の「×」自体が安全とは限りません。
+          これは第3問で練習します。
+        </p>
+      </div>
+
+      <button id="returnArticleButton" class="primary-button" type="button">
+        記事に戻る
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
