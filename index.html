@@ -7,7 +7,7 @@
   <title>ネット広告 安全操作トレーニング</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="main">
   <!-- 安全確認画面 -->
   <section id="introScreen" class="screen intro-screen" aria-labelledby="introTitle">
     <div class="intro-card">
@@ -103,16 +103,32 @@
             <li><span>4</span><p>味を整えたら完成です。お好みでパセリを添えてください。</p></li>
           </ol>
 
+          <div class="article-tip">
+            <strong>ひとことメモ</strong>
+            <p>煮込み時間を少し長くすると、鶏肉とトマトの味がなじみやすくなります。</p>
+          </div>
+
+          <button id="openSecondScenarioButton" class="article-button" type="button">
+            レシピのコツをもう少し見る
+          </button>
+        </section>
+
+        <div id="q2ClearNote" class="clear-note is-hidden" aria-live="polite">
+          <strong>第2問クリア！</strong>
+          <span>元の記事へ安全に戻ることができました。</span>
+        </div>
+
+        <section id="articleAfterQ2" class="recipe-section is-hidden">
           <div class="next-stage-box">
-            <strong>ここまでで第1問の動作確認は完了です。</strong>
-            <p>第2問「×のない広告ページ」は次の実装で追加します。</p>
+            <strong>ここまでで第2問の動作確認は完了です。</strong>
+            <p>第3問「怪しい警告画面」は次の実装で追加します。</p>
           </div>
         </section>
       </article>
     </div>
   </main>
 
-  <!-- 第1問 広告 -->
+  <!-- 第1問：通常の模擬広告 -->
   <div id="scenarioLayer" class="overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="scenarioTitle">
     <div class="scenario-panel">
       <button id="closeScenarioButton" class="scenario-dismiss" type="button" aria-label="広告を閉じる">×</button>
@@ -136,7 +152,7 @@
     </div>
   </div>
 
-  <!-- NG表示 -->
+  <!-- 第1問 NG -->
   <div id="ngOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="ngTitle">
     <div class="feedback-card">
       <div class="feedback-symbol ng-symbol">×</div>
@@ -159,7 +175,7 @@
     </div>
   </div>
 
-  <!-- 正解表示 -->
+  <!-- 第1問 正解 -->
   <div id="correctOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="correctTitle">
     <div class="feedback-card">
       <div class="feedback-symbol ok-symbol">✓</div>
@@ -180,6 +196,31 @@
 
       <button id="returnArticleButton" class="primary-button" type="button">
         記事に戻る
+      </button>
+    </div>
+  </div>
+
+  <!-- 第2問 正解 -->
+  <div id="q2CorrectOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="q2CorrectTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol ok-symbol">✓</div>
+      <h2 id="q2CorrectTitle">正解！</h2>
+      <p>画面内を触り続けず、元の記事へ戻ることができました。</p>
+
+      <div class="lesson-box">
+        <strong>今回のポイント</strong>
+        <p>
+          閉じる「×」が見つからないときは、ページの中を押し続けず、
+          Safariの「戻る」などブラウザ側の操作も確認してみましょう。
+        </p>
+        <p class="caution">
+          ※この教材は「戻るボタンを押したこと」そのものではなく、
+          模擬ページから元の記事へ安全に戻れたことを確認しています。
+        </p>
+      </div>
+
+      <button id="q2ReturnArticleButton" class="primary-button" type="button">
+        記事を続ける
       </button>
     </div>
   </div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>暮らしの便利アイテム特集</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="scenario2" class="scenario-page">
+  <header class="training-header scenario-header">
+    <div>
+      <span class="training-label">安全操作トレーニング</span>
+      <strong>第2問 / 3問</strong>
+    </div>
+    <span class="status-pill">練習用</span>
+  </header>
+
+  <main class="full-scenario-wrap">
+    <section class="full-scenario-card">
+      <span class="scenario-label inline-label">PR</span>
+
+      <div class="feature-visual" aria-hidden="true">
+        <div class="feature-box">
+          <span class="feature-circle circle-a"></span>
+          <span class="feature-circle circle-b"></span>
+          <span class="feature-line"></span>
+        </div>
+      </div>
+
+      <p class="feature-kicker">毎日の家事を、もっと快適に。</p>
+      <h1>キッチン便利アイテム<br>おすすめ特集</h1>
+      <p class="feature-text">
+        使いやすさにこだわったキッチン用品をまとめてご紹介。
+        暮らしに合うアイテムを見つけてみませんか？
+      </p>
+
+      <button class="scenario2-choice feature-button" type="button" data-hit="「特集を見る」ボタン">
+        特集を見る
+      </button>
+
+      <button class="scenario2-choice feature-link" type="button" data-hit="「おすすめ商品を見る」リンク">
+        おすすめ商品を見る
+      </button>
+
+      <p class="feature-note">
+        ※このページは安全操作トレーニング用の模擬ページです。
+      </p>
+    </section>
+  </main>
+
+  <!-- 第2問 NG -->
+  <div id="q2NgOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="q2NgTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol ng-symbol">×</div>
+      <h2 id="q2NgTitle">NG！</h2>
+      <p>このページの中をさらに進もうとしました。</p>
+
+      <div class="hit-box">
+        <span>あなたが押した場所</span>
+        <strong id="q2HitTarget">ページ内のボタン</strong>
+      </div>
+
+      <p class="feedback-explanation">
+        この画面には閉じる「×」がありません。
+        画面の中を探し続けるだけでなく、Safari側の操作も確認してみましょう。
+      </p>
+
+      <button id="q2RetryButton" class="secondary-button" type="button">
+        もう一度やってみる
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -543,3 +543,146 @@ button:focus-visible {
     border-radius: 18px;
   }
 }
+
+
+/* STEP2: 第2問 */
+.article-tip {
+  margin: 22px 0;
+  padding: 15px 16px;
+  border-radius: 14px;
+  background: #fbf7ef;
+  border: 1px solid #eadfcf;
+}
+
+.article-tip strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.article-tip p {
+  margin: 0;
+}
+
+.scenario-page {
+  background: #f3f2ef;
+}
+
+.scenario-header {
+  position: sticky;
+}
+
+.full-scenario-wrap {
+  min-height: calc(100vh - 64px);
+  padding: 22px 16px calc(44px + env(safe-area-inset-bottom));
+}
+
+.full-scenario-card {
+  width: min(100%, 560px);
+  margin: 0 auto;
+  padding: 22px 18px 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 14px 38px rgba(26, 23, 19, 0.12);
+  text-align: center;
+}
+
+.inline-label {
+  display: inline-block;
+  position: static;
+  margin-bottom: 12px;
+}
+
+.feature-visual {
+  overflow: hidden;
+  height: 210px;
+  margin: 0 -2px 20px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #d7e0dc, #a9bbb4);
+}
+
+.feature-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.feature-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 8px 24px rgba(0,0,0,.10);
+}
+
+.circle-a {
+  width: 112px;
+  height: 112px;
+  left: 17%;
+  top: 25%;
+}
+
+.circle-b {
+  width: 78px;
+  height: 78px;
+  right: 18%;
+  top: 31%;
+}
+
+.feature-line {
+  position: absolute;
+  width: 130px;
+  height: 18px;
+  left: 50%;
+  bottom: 22%;
+  transform: translateX(-50%) rotate(-6deg);
+  border-radius: 999px;
+  background: rgba(65, 90, 81, .78);
+}
+
+.feature-kicker {
+  margin: 0 0 5px;
+  color: #6c756f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.full-scenario-card h1 {
+  margin: 0;
+  font-size: clamp(28px, 8vw, 38px);
+  line-height: 1.35;
+}
+
+.feature-text {
+  margin: 14px auto 20px;
+  max-width: 430px;
+  color: #615d58;
+}
+
+.feature-button,
+.feature-link {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+.feature-button {
+  border: 0;
+  color: #ffffff;
+  background: #5f766e;
+  font-weight: 800;
+}
+
+.feature-link {
+  margin-top: 12px;
+  border: 1px solid #cfd7d3;
+  color: #42544e;
+  background: #f7faf8;
+  font-weight: 700;
+}
+
+.feature-note {
+  margin: 18px 0 0;
+  color: #8a847e;
+  font-size: 12px;
+}
