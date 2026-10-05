@@ -4,51 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f6f3ed">
-  <title>鶏肉のトマト煮｜暮らしの台所帖</title>
+  <title>Level 1｜ネット広告 操作トレーニング</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="main">
-  <!-- 最初だけ教材であることを明示 -->
   <section id="introScreen" class="screen intro-screen" aria-labelledby="introTitle">
     <div class="intro-card">
-      <span class="eyebrow">iPhone Safari版・練習用</span>
-      <h1 id="introTitle">ネット広告・警告画面<br>安全操作トレーニング</h1>
-      <p class="lead">
-        普段のWebサイトを見る感覚で操作しながら、
-        広告や警告画面が出たときの安全な対処を練習します。
-      </p>
-
+      <span class="eyebrow">iPhone Safari版・Level 1</span>
+      <h1 id="introTitle">ネット広告<br>操作トレーニング</h1>
+      <p class="lead">普段のWebサイトを見る感覚で操作しながら、普通の広告が出たときの落ち着いた対処を練習します。</p>
       <div class="safety-box">
         <strong>このサイト内はすべて模擬画面です</strong>
         <ul>
-          <li>実際の電話は発信しません</li>
-          <li>支払い・購入は発生しません</li>
-          <li>アプリのインストールは行いません</li>
+          <li>購入や申し込みは発生しません</li>
+          <li>外部の広告サイトへ移動しません</li>
           <li>個人情報の入力は求めません</li>
         </ul>
       </div>
-
-      <button id="startButton" class="primary-button" type="button">
-        トレーニングを始める
-      </button>
+      <p class="intro-goal">広告が出ても、慌てず「そのまま通る・見分ける・閉じる・待つ・スキップする」を体験します。</p>
+      <button id="startButton" class="primary-button" type="button">Level 1を始める</button>
     </div>
   </section>
 
   <main id="trainingScreen" class="screen is-hidden">
-    <!-- 教材UIは控えめに残す -->
     <header class="training-header">
       <div class="training-progress">
-        <span class="training-label">安全操作トレーニング</span>
-        <strong id="progressText">第1問 / 3問</strong>
+        <span class="training-label">ネット広告 操作トレーニング</span>
+        <strong id="progressText">Level 1　1 / 6</strong>
       </div>
       <div class="header-tools">
-        <button id="teacherResetButton" class="teacher-reset-button" type="button">講師用リセット</button>
+        <button id="teacherResetButton" class="teacher-reset-button is-hidden" type="button">講師用リセット</button>
         <span class="status-pill">練習用</span>
       </div>
     </header>
 
-    <!-- 架空のレシピメディア -->
-    <div id="articleView" class="article-wrap">
+    <div id="siteAView" class="article-wrap">
       <header class="site-header">
         <div class="site-brand-row">
           <div class="site-menu-mark" aria-hidden="true">☰</div>
@@ -58,241 +48,109 @@
           </div>
           <div class="site-search-mark" aria-hidden="true">⌕</div>
         </div>
-
         <nav class="site-nav" aria-label="サイトカテゴリ">
-          <span>レシピ</span>
-          <span>献立</span>
-          <span>時短</span>
-          <span>節約</span>
-          <span>暮らし</span>
+          <span>レシピ</span><span>献立</span><span>時短</span><span>節約</span><span>暮らし</span>
         </nav>
       </header>
 
-      <div class="instruction">
-        このページを、普段のWebサイトと同じように読み進めてください。
-      </div>
+      <div id="instructionBox" class="instruction">いつものように記事を読み進めてください。</div>
 
-      <article class="recipe-article">
-        <div class="breadcrumbs" aria-label="パンくずリスト">
-          ホーム <span>›</span> レシピ <span>›</span> 主菜
-        </div>
-
-        <div class="article-tags">
-          <span>主菜</span>
-          <span>フライパン</span>
-          <span>25分以内</span>
-        </div>
-
+      <article id="recipeArticle" class="recipe-article">
+        <div class="breadcrumbs">ホーム <span>›</span> レシピ <span>›</span> 主菜</div>
+        <div class="article-tags"><span>主菜</span><span>フライパン</span><span>25分以内</span></div>
         <h1 class="article-title">フライパンひとつで簡単！<br>鶏肉のトマト煮</h1>
-        <p class="article-deck">
-          ほどよい酸味と鶏肉のうま味がなじむ、平日の晩ごはんに使いやすい一皿。
-          材料を順番に入れて煮込むだけなので、忙しい日にも作りやすいレシピです。
-        </p>
-
+        <p class="article-deck">ほどよい酸味と鶏肉のうま味がなじむ、平日の晩ごはんに使いやすい一皿。材料を順番に入れて煮込むだけなので、忙しい日にも作りやすいレシピです。</p>
         <div class="author-row">
           <div class="author-avatar" aria-hidden="true">台</div>
-          <div class="author-copy">
-            <strong>暮らしの台所帖 編集部</strong>
-            <span>公開：2026年9月12日　更新：2026年9月26日</span>
-          </div>
+          <div class="author-copy"><strong>暮らしの台所帖 編集部</strong><span>公開：2026年9月12日　更新：2026年9月26日</span></div>
         </div>
-
-        <div class="article-utilities" aria-label="記事情報">
-          <span>⏱ 約25分</span>
-          <span>👥 2〜3人分</span>
-          <span>♨ フライパン1つ</span>
-        </div>
-
-        <!-- 教室運用向けにローカルWebP画像を使用。外部通信なし -->
+        <div class="article-utilities"><span>⏱ 約25分</span><span>👥 2〜3人分</span><span>♨ フライパン1つ</span></div>
         <figure class="hero-photo">
-          <img
-            src="assets/chicken-tomato-stew.webp"
-            alt="鶏肉と玉ねぎをトマトソースで煮込んだ料理"
-            width="1200"
-            height="800"
-            decoding="async"
-          >
+          <img src="assets/chicken-tomato-stew.webp" alt="鶏肉と玉ねぎをトマトソースで煮込んだ料理" width="1200" height="800" decoding="async">
           <figcaption>鶏肉とトマトをじっくり煮込んだ、やさしい味わいの一皿。</figcaption>
         </figure>
-
-        <div class="article-lead-box">
-          <strong>このレシピのポイント</strong>
-          <p>
-            鶏肉に焼き色をつけてから煮込むと、香ばしさが加わります。
-            トマトの酸味が気になるときは、仕上げに砂糖をほんの少し加えるのがコツです。
-          </p>
-        </div>
+        <div class="article-lead-box"><strong>このレシピのポイント</strong><p>鶏肉に焼き色をつけてから煮込むと、香ばしさが加わります。トマトの酸味が気になるときは、仕上げに砂糖をほんの少し加えるのがコツです。</p></div>
 
         <section class="recipe-section ingredient-section">
-          <div class="section-heading-row">
-            <h2>材料</h2>
-            <span>2〜3人分</span>
-          </div>
+          <div class="section-heading-row"><h2>材料</h2><span>2〜3人分</span></div>
           <dl class="ingredient-list">
-            <div><dt>鶏もも肉</dt><dd>1枚（約300g）</dd></div>
-            <div><dt>玉ねぎ</dt><dd>1/2個</dd></div>
-            <div><dt>カットトマト</dt><dd>200g</dd></div>
-            <div><dt>コンソメ</dt><dd>小さじ1</dd></div>
-            <div><dt>オリーブオイル</dt><dd>小さじ2</dd></div>
-            <div><dt>塩・こしょう</dt><dd>少々</dd></div>
+            <div><dt>鶏もも肉</dt><dd>1枚（約300g）</dd></div><div><dt>玉ねぎ</dt><dd>1/2個</dd></div>
+            <div><dt>カットトマト</dt><dd>200g</dd></div><div><dt>コンソメ</dt><dd>小さじ1</dd></div>
+            <div><dt>オリーブオイル</dt><dd>小さじ2</dd></div><div><dt>塩・こしょう</dt><dd>少々</dd></div>
           </dl>
         </section>
 
         <section class="recipe-section">
-          <div class="section-heading-row">
-            <h2>作り方</h2>
-            <span>全4工程</span>
-          </div>
-
+          <div class="section-heading-row"><h2>作り方</h2><span>全4工程</span></div>
           <ol class="steps">
-            <li>
-              <span>1</span>
-              <div><strong>下ごしらえをする</strong><p>鶏肉を食べやすい大きさに切り、玉ねぎを薄切りにします。</p></div>
-            </li>
-            <li>
-              <span>2</span>
-              <div><strong>鶏肉を焼く</strong><p>フライパンにオリーブオイルを入れ、鶏肉の表面に焼き色をつけます。</p></div>
-            </li>
+            <li><span>1</span><div><strong>下ごしらえをする</strong><p>鶏肉を食べやすい大きさに切り、玉ねぎを薄切りにします。</p></div></li>
+            <li><span>2</span><div><strong>鶏肉を焼く</strong><p>フライパンにオリーブオイルを入れ、鶏肉の表面に焼き色をつけます。</p></div></li>
           </ol>
         </section>
 
-        <button id="continueButton" class="article-button" type="button">
-          作り方の続きを見る
-        </button>
+        <!-- L1-1: 記事内広告。内部名は広告ブロッカーに引っかかりにくい中立名にしている -->
+        <section id="lesson1Card" class="inline-card" aria-label="広告">
+          <span class="tiny-mark">広告</span>
+          <div class="inline-card-body">
+            <div class="inline-card-icon" aria-hidden="true">🥣</div>
+            <div><strong>毎日の保存を、もっとすっきり</strong><p>重ねやすい保存容器で冷蔵庫を整えよう。</p></div>
+          </div>
+          <button class="inline-card-button" type="button" data-lesson1-hit>商品を見る</button>
+        </section>
 
-        <div id="q1ClearNote" class="clear-note is-hidden" aria-live="polite">
-          <strong>第1問クリア！</strong>
-          <span>記事の続きを読めるようになりました。</span>
-        </div>
-
-        <section id="articleAfterQ1" class="recipe-section is-hidden">
+        <section id="lesson1Goal" class="recipe-section">
           <ol class="steps" start="3">
-            <li>
-              <span>3</span>
-              <div><strong>トマトと一緒に煮込む</strong><p>玉ねぎとトマトを加え、弱めの中火で10〜15分ほど煮込みます。</p></div>
-            </li>
-            <li>
-              <span>4</span>
-              <div><strong>味を整える</strong><p>コンソメ、塩、こしょうで味を整えたら完成です。</p></div>
-            </li>
+            <li><span>3</span><div><strong>トマトと一緒に煮込む</strong><p>玉ねぎとトマトを加え、弱めの中火で10〜15分ほど煮込みます。</p></div></li>
+            <li><span>4</span><div><strong>味を整える</strong><p>コンソメ、塩、こしょうで味を整えたら完成です。</p></div></li>
           </ol>
-
-          <div class="editor-note">
-            <span class="editor-note-icon">POINT</span>
-            <div>
-              <strong>煮込みすぎても大丈夫</strong>
-              <p>水分が少なくなったら、水を大さじ1〜2ずつ足しながら調整してください。</p>
-            </div>
-          </div>
-
-          <div class="article-divider"></div>
-
-          <section class="related-reading">
-            <p class="related-label">あわせて読みたい</p>
-            <div class="related-card">
-              <img class="related-thumb" src="assets/stew-cooking-tips.webp" alt="" width="640" height="640" loading="lazy" decoding="async">
-              <div class="related-copy">
-                <span>料理の基本</span>
-                <strong>煮込み料理をおいしく仕上げる3つのコツ</strong>
-                <p>火加減や水分調整など、失敗しにくいポイントをまとめました。</p>
-              </div>
-            </div>
-          </section>
-
-          <button id="openSecondScenarioButton" class="article-button link-style-button" type="button">
-            この記事を読む
-          </button>
         </section>
 
-        <div id="q2ClearNote" class="clear-note is-hidden" aria-live="polite">
-          <strong>第2問クリア！</strong>
-          <span>元の記事へ安全に戻ることができました。</span>
-        </div>
-
-        <section id="articleAfterQ2" class="recipe-section is-hidden">
+        <!-- L1-2 -->
+        <section id="lesson2Section" class="related-reading is-hidden">
           <div class="article-divider"></div>
-
-          <section class="recipe-section">
-            <div class="section-heading-row">
-              <h2>仕上げのコツ</h2>
-              <span>編集部メモ</span>
-            </div>
-            <p>
-              最後に味を見て、酸味が強いときは砂糖をひとつまみ。
-              翌日はパンやショートパスタと合わせてもおいしく食べられます。
-            </p>
-          </section>
-
-          <section class="related-reading">
-            <p class="related-label">関連記事</p>
-            <div class="related-card">
-              <img class="related-thumb" src="assets/safe-smartphone-kitchen.webp" alt="" width="640" height="640" loading="lazy" decoding="async">
-              <div class="related-copy">
-                <span>暮らし</span>
-                <strong>料理中にスマホを安全に使うための小さな工夫</strong>
-                <p>レシピを見るときに覚えておきたい、画面操作のポイント。</p>
-              </div>
-            </div>
-          </section>
-
-          <button id="openThirdScenarioButton" class="article-button link-style-button" type="button">
-            関連記事を開く
-          </button>
-
-          <div id="q3OpenProblem" class="browser-problem is-hidden" role="status">
-            <strong>新しいタブを開けませんでした</strong>
-            <p>
-              Safariの設定などにより、新しいタブが開かなかった可能性があります。
-              この項目は実機確認が必要です。
-            </p>
+          <p class="related-label">あわせて読みたい</p>
+          <h2 class="small-section-title">次に読みたい記事を1つ選んでください。</h2>
+          <div class="choice-list">
+            <button class="story-choice" type="button" data-story="stew" data-normal-story>
+              <img src="assets/stew-cooking-tips.webp" alt="" width="640" height="640" loading="lazy" decoding="async">
+              <span><small>料理の基本</small><strong>煮込み料理をおいしく仕上げる3つのコツ</strong><em>火加減や水分調整のポイント。</em></span>
+            </button>
+            <button class="story-choice" type="button" data-promo-story>
+              <div class="choice-placeholder" aria-hidden="true">時短</div>
+              <span><small>PR</small><strong>毎日の料理をもっと手軽に</strong><em>忙しい日にうれしいキッチンアイテム特集。</em></span>
+            </button>
+            <button class="story-choice" type="button" data-story="prep" data-normal-story>
+              <div class="choice-placeholder warm" aria-hidden="true">作り置き</div>
+              <span><small>暮らし</small><strong>忙しい日の作り置きアイデア</strong><em>無理なく続ける小さな工夫。</em></span>
+            </button>
           </div>
         </section>
 
-        <div id="q3ClearNote" class="clear-note is-hidden" aria-live="polite">
-          <strong>第3問クリア！</strong>
-          <span>怪しい画面の指示に従わず、元の記事へ戻れました。</span>
-        </div>
-
-        <section id="completionSection" class="completion-section is-hidden">
-          <p class="completion-kicker">トレーニング終了</p>
-          <h2>3つの安全操作を練習できました 🎉</h2>
-
-          <div class="summary-grid">
-            <div class="summary-card">
-              <span class="summary-number">1</span>
-              <strong>普通の広告</strong>
-              <p>広告を開く必要がなければ、適切な閉じる操作を確認する。</p>
-            </div>
-
-            <div class="summary-card">
-              <span class="summary-number">2</span>
-              <strong>×がないページ</strong>
-              <p>ページの中を触り続けず、ブラウザ側の「戻る」も確認する。</p>
-            </div>
-
-            <div class="summary-card">
-              <span class="summary-number">3</span>
-              <strong>怪しい警告</strong>
-              <p>画面内の指示に従わず、安全なページ側へ離れる。</p>
-            </div>
+        <!-- L1-3: 選んだ関連記事の本文 -->
+        <section id="lesson3Section" class="recipe-section is-hidden">
+          <div class="article-divider"></div>
+          <div class="breadcrumbs">ホーム <span>›</span> 読みもの <span>›</span> 料理のコツ</div>
+          <h2 id="storyTitle" class="article-subtitle">煮込み料理をおいしく仕上げる3つのコツ</h2>
+          <p id="storyLead" class="article-deck">ちょっとした火加減と水分調整で、いつもの煮込み料理がぐっと作りやすくなります。</p>
+          <div class="tip-stack">
+            <div><strong>1　最初に香ばしさをつける</strong><p>肉や野菜を軽く焼いてから煮込むと、味に奥行きが出ます。</p></div>
+            <div><strong>2　ふたの開け閉めで水分を調整</strong><p>煮詰まりすぎたら少量の水を足し、ゆるいときはふたを外して調整します。</p></div>
+            <div><strong>3　最後に味を整える</strong><p>塩味や酸味は煮込み終わりに確認すると、調整しやすくなります。</p></div>
           </div>
+          <div id="lesson3Goal" class="read-marker"><strong>ここまで読めました。</strong><span>下にも記事が続きます。</span></div>
+          <button id="openLesson4Button" class="article-button is-hidden" type="button">もう1本、記事を読む</button>
+        </section>
 
-          <blockquote class="final-message">
-            画面の中だけで解決しようとしなくても大丈夫。
-          </blockquote>
-
-          <p class="completion-note">
-            第3問で警告タブがまだ残っている場合は、そのタブも閉じてください。
-          </p>
-
-          <button id="restartButton" class="primary-button" type="button">
-            もう一度練習する
-          </button>
+        <!-- L1-4後 -->
+        <section id="siteATransition" class="transition-card is-hidden">
+          <span>暮らしの台所帖での練習はここまで</span>
+          <h2>次は、別のWebサイトを見てみましょう。</h2>
+          <p>広告の見た目が変わっても、落ち着いて操作できるか試します。</p>
+          <a id="goSiteBButton" class="primary-button link-button" href="outing.html">週末のおでかけ記事を見る</a>
         </section>
 
         <footer class="site-footer">
-          <strong>暮らしの台所帖</strong>
-          <p>毎日のごはんと暮らしを、少しだけラクに。</p>
+          <strong>暮らしの台所帖</strong><p>毎日のごはんと暮らしを、少しだけラクに。</p>
           <div class="footer-links"><span>運営情報</span><span>お問い合わせ</span><span>利用について</span></div>
           <small>※「暮らしの台所帖」は本トレーニング用の架空サイトです。</small>
         </footer>
@@ -300,112 +158,52 @@
     </div>
   </main>
 
-  <!-- 第1問：通常の模擬広告 -->
-  <div id="scenarioLayer" class="overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="scenarioTitle">
+  <!-- L1-3 画面下固定 -->
+  <div id="lesson3Bar" class="bottom-panel is-hidden" aria-label="広告">
+    <button id="closeLesson3Bar" class="bottom-panel-close" type="button" aria-label="広告を閉じる">×</button>
+    <button class="bottom-panel-body" type="button" data-lesson3-hit>
+      <span class="tiny-mark">広告</span>
+      <strong>水まわりを、もっと軽やかに。</strong>
+      <small>吸水クロス 新色ラインナップ</small>
+    </button>
+    <button class="bottom-panel-action" type="button" data-lesson3-hit>詳しく見る</button>
+  </div>
+
+  <!-- L1-4 ポップアップ -->
+  <div id="lesson4Layer" class="overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="lesson4Title">
     <div class="scenario-panel">
-      <button id="closeScenarioButton" class="scenario-dismiss" type="button" aria-label="広告を閉じる">×</button>
-
-      <button class="training-choice scenario-media" type="button" data-hit="広告の商品写真">
+      <button id="closeLesson4Button" class="scenario-dismiss" type="button" aria-label="広告を閉じる">×</button>
+      <button class="training-choice scenario-media" type="button" data-lesson4-hit>
         <span class="scenario-label">PR</span>
-        <img class="scenario-product-photo" src="assets/q1-kitchen-storage.webp" alt="" width="1000" height="600" decoding="async">
+        <img class="scenario-product-photo" src="assets/kitchen-storage.webp" alt="" width="1000" height="600" decoding="async">
       </button>
-
-      <button class="training-choice scenario-copy" type="button" data-hit="広告の文章">
+      <button class="training-choice scenario-copy" type="button" data-lesson4-hit>
         <small>キッチン収納 特集</small>
-        <h2 id="scenarioTitle">調味料もツールも<br>すっきりひとまとめ</h2>
+        <h2 id="lesson4Title">調味料もツールも<br>すっきりひとまとめ</h2>
         <p>限られたスペースを使いやすく整える、キッチン収納アイテムをご紹介。</p>
       </button>
-
-      <button class="training-choice scenario-action" type="button" data-hit="「特集を見る」ボタン">
-        特集を見る
-      </button>
-
+      <button class="training-choice scenario-action" type="button" data-lesson4-hit>特集を見る</button>
       <p class="scenario-sponsor">広告・スポンサーリンク</p>
     </div>
   </div>
 
-  <!-- 第1問 NG -->
-  <div id="ngOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="ngTitle">
+  <!-- 共通フィードバック -->
+  <div id="feedbackLayer" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
     <div class="feedback-card">
-      <div class="feedback-symbol ng-symbol">×</div>
-      <h2 id="ngTitle">NG！</h2>
-      <p>広告の中を押しました。</p>
-      <div class="hit-box">
-        <span>あなたが押した場所</span>
-        <strong id="hitTarget">広告の中</strong>
-      </div>
-      <p class="feedback-explanation">
-        記事へ戻りたいときは、広告内のボタンを押す前に、
-        まず閉じる操作があるか確認してみましょう。
-      </p>
-      <button id="retryButton" class="secondary-button" type="button">もう一度やってみる</button>
-    </div>
-  </div>
-
-  <!-- 第1問 正解 -->
-  <div id="correctOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="correctTitle">
-    <div class="feedback-card">
-      <div class="feedback-symbol ok-symbol">✓</div>
-      <h2 id="correctTitle">正解！</h2>
-      <p>広告を開かずに閉じることができました。</p>
-      <div class="lesson-box">
-        <strong>今回のポイント</strong>
-        <p>明らかな通常広告を閉じたいときは、広告の中を開く前に「×」や「閉じる」を確認します。</p>
-        <p class="caution">
-          ※突然の警告など怪しい画面では、画面内の「×」自体が安全とは限りません。
-          これは第3問で練習します。
-        </p>
-      </div>
-      <button id="returnArticleButton" class="primary-button" type="button">記事に戻る</button>
-    </div>
-  </div>
-
-  <!-- 第2問 正解 -->
-  <div id="q2CorrectOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="q2CorrectTitle">
-    <div class="feedback-card">
-      <div class="feedback-symbol ok-symbol">✓</div>
-      <h2 id="q2CorrectTitle">正解！</h2>
-      <p>画面内を触り続けず、元の記事へ戻ることができました。</p>
-      <div class="lesson-box">
-        <strong>今回のポイント</strong>
-        <p>閉じる「×」が見つからないときは、ページの中を押し続けず、Safariの「戻る」などブラウザ側の操作も確認してみましょう。</p>
-        <p class="caution">
-          ※この教材は「戻るボタンを押したこと」そのものではなく、
-          模擬ページから元の記事へ安全に戻れたことを確認しています。
-        </p>
-      </div>
-      <button id="q2ReturnArticleButton" class="primary-button" type="button">記事を続ける</button>
-    </div>
-  </div>
-
-  <!-- 第3問 正解 -->
-  <div id="q3CorrectOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="q3CorrectTitle">
-    <div class="feedback-card">
-      <div class="feedback-symbol ok-symbol">✓</div>
-      <h2 id="q3CorrectTitle">正解！</h2>
-      <p>警告画面の指示に従わず、元の記事へ戻ることができました。</p>
-      <div class="lesson-box">
-        <strong>今回のポイント</strong>
-        <p>突然の警告では、画面の中にある「確認」「スキャン」などをすぐ押さず、一度その画面から離れることを考えましょう。</p>
-        <p class="caution">
-          ※この教材では、警告タブを「閉じた」のか「元のタブへ切り替えた」のかをWebサイト側から断定していません。
-          警告タブが残っている場合は閉じてください。
-        </p>
-      </div>
-      <button id="q3ReturnArticleButton" class="primary-button" type="button">振り返りを見る</button>
+      <div id="feedbackSymbol" class="feedback-symbol info-symbol">i</div>
+      <h2 id="feedbackTitle">ポイント</h2>
+      <p id="feedbackLead"></p>
+      <div id="feedbackLesson" class="lesson-box"></div>
+      <button id="feedbackButton" class="primary-button" type="button">続ける</button>
     </div>
   </div>
 
   <!-- 講師用リセット -->
-  <div id="teacherResetOverlay" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="teacherResetTitle">
+  <div id="teacherResetLayer" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="teacherResetTitle">
     <div class="feedback-card">
       <div class="feedback-symbol reset-symbol">↺</div>
       <h2 id="teacherResetTitle">最初からやり直しますか？</h2>
-      <p>この端末に保存されているトレーニングの進捗をリセットします。</p>
-      <div class="lesson-box">
-        <strong>講師用</strong>
-        <p>受講者が途中で詰まったときや、次の受講者へ端末を渡すときに使います。</p>
-      </div>
+      <p>この端末のLevel 1進捗をリセットします。</p>
       <div class="dual-buttons">
         <button id="teacherResetCancel" class="secondary-button" type="button">キャンセル</button>
         <button id="teacherResetConfirm" class="danger-button" type="button">最初に戻す</button>
@@ -413,6 +211,7 @@
     </div>
   </div>
 
+  <div id="lessonToast" class="lesson-toast is-hidden" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>
 </html>
