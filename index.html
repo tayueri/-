@@ -55,7 +55,7 @@
 
       <div id="instructionBox" class="instruction">いつものように記事を読み進めてください。</div>
 
-      <article id="recipeArticle" class="recipe-article">
+      <article id="recipeArticle" class="recipe-article lesson1-reading">
         <div class="breadcrumbs">ホーム <span>›</span> レシピ <span>›</span> 主菜</div>
         <div class="article-tags"><span>主菜</span><span>フライパン</span><span>25分以内</span></div>
         <h1 class="article-title">フライパンひとつで簡単！<br>鶏肉のトマト煮</h1>
@@ -89,20 +89,30 @@
         </section>
 
         <!-- L1-1: 記事内広告。内部名は広告ブロッカーに引っかかりにくい中立名にしている -->
-        <section id="lesson1Card" class="inline-card" aria-label="広告">
-          <span class="tiny-mark">広告</span>
-          <div class="inline-card-body">
-            <div class="inline-card-icon" aria-hidden="true">🥣</div>
-            <div><strong>毎日の保存を、もっとすっきり</strong><p>重ねやすい保存容器で冷蔵庫を整えよう。</p></div>
-          </div>
-          <button class="inline-card-button" type="button" data-lesson1-hit>商品を見る</button>
-        </section>
+        <button id="lesson1Card" class="inline-card" type="button" data-lesson1-hit aria-labelledby="lesson1Label lesson1Copy lesson1Action">
+          <span class="inline-card-topline"><span id="lesson1Label" class="inline-card-label">広告</span><span class="inline-card-category">キッチン用品特集</span></span>
+          <img class="inline-card-photo" src="assets/kitchen-storage.webp" alt="調味料や調理道具をひとまとめにできるキッチン収納ラック" width="1000" height="600" decoding="async">
+          <span class="inline-card-body">
+            <strong id="lesson1Copy">毎日の料理を、<br>もう少しラクに。</strong>
+            <span class="inline-card-description">よく使う道具が、さっと手に届く。<br>使いやすいキッチン収納をチェック。</span>
+            <span id="lesson1Action" class="inline-card-button">詳しく見る <span aria-hidden="true">→</span></span>
+          </span>
+        </button>
 
-        <section id="lesson1Goal" class="recipe-section">
+        <section id="lesson1Goal" class="recipe-section lesson1-continuation" aria-labelledby="lesson1RecipeHeading">
+          <h2 id="lesson1RecipeHeading">鶏肉のトマト煮｜作り方の続き</h2>
           <ol class="steps" start="3">
             <li><span>3</span><div><strong>トマトと一緒に煮込む</strong><p>玉ねぎとトマトを加え、弱めの中火で10〜15分ほど煮込みます。</p></div></li>
-            <li><span>4</span><div><strong>味を整える</strong><p>コンソメ、塩、こしょうで味を整えたら完成です。</p></div></li>
           </ol>
+          <p>ときどき底からやさしく混ぜ、焦げつかないようにします。水分が少なくなったら、水を少しずつ足してください。</p>
+          <p>鶏肉の中心まで十分に火が通ったら、仕上げの味つけに進みます。</p>
+          <button id="lesson1ContinueButton" class="article-button" type="button" aria-controls="lesson1Finish" aria-expanded="false">次の手順を見る <span aria-hidden="true">→</span></button>
+          <div id="lesson1Finish" class="is-hidden" tabindex="-1">
+            <ol class="steps" start="4">
+              <li><span>4</span><div><strong>味を整える</strong><p>コンソメ、塩、こしょうで味を整えたら完成です。</p></div></li>
+            </ol>
+            <p>器に盛りつけ、お好みでパセリを散らします。パンにもごはんにも合う一皿です。</p>
+          </div>
         </section>
 
         <!-- L1-2 -->

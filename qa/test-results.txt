@@ -1,0 +1,32 @@
+PASS 通常開始・講師ボタン非表示
+PASS 本文が見えても100回のscrollで成功しない
+PASS 広告連打で進捗不変・中立説明
+PASS 説明中は背景操作を遮断
+PASS 説明中のキーボードフォーカス
+PASS 説明中の本文操作は成功させない
+PASS 記事へ戻り操作を再開
+PASS 広告クリック後リロードでL1-1継続
+PASS 本文操作のみで一度だけL1-1完了
+PASS 成功説明中のリロードでも手順4とL1-2復元
+PASS 次の手順を実際に表示してL1-2へ接続
+PASS L1-2 PR選択は説明のみ
+PASS L1-2通常記事からL1-3
+PASS L1-3進捗リロード
+PASS L1-3広告を残して読むルート維持
+PASS L1-3閉じるルート維持
+PASS L1-4広告クリックで閉じない
+PASS L1-4からSite B案内
+PASS L1-5 3秒未満は閉じる非表示
+PASS L1-5 3秒で閉じる表示
+PASS L1-5から記事へ
+PASS L1-5後リロード
+PASS L1-6 5秒未満はスキップ非表示
+PASS L1-6 5秒でスキップ表示
+PASS L1-6から全体完了
+PASS 完了後リロード
+PASS teacher=1で講師操作表示
+PASS 講師リセット取消は保存状態維持
+PASS 講師リセットの従来動作維持
+PASS start=1は教材の進捗だけをリセット
+PASS startをURLから除去・teacher保持
+TOTAL 31 PASS (DOM/event simulation; not a browser/device test)

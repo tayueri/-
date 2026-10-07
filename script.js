@@ -29,8 +29,17 @@
   function makeFeedbackController(){
     const layer = $("feedbackLayer"), symbol=$("feedbackSymbol"), title=$("feedbackTitle"), lead=$("feedbackLead"), lesson=$("feedbackLesson"), button=$("feedbackButton");
     let callback = null;
+    let lesson1Active = false, returnFocus = null, previousInert = [];
     function open(opts){
       if(!layer) return;
+      lesson1Active = opts.lesson1 === true;
+      layer.classList.toggle("lesson1-feedback", lesson1Active);
+      if(lesson1Active){
+        layer.setAttribute("aria-describedby","feedbackLead feedbackLesson");
+        returnFocus = document.activeElement;
+        previousInert = [$("introScreen"), $("trainingScreen")].filter(Boolean).map(el=>[el,el.inert]);
+        previousInert.forEach(([el])=>{el.inert=true;});
+      } else layer.removeAttribute("aria-describedby");
       symbol.textContent = opts.symbol || "✓";
       symbol.className = "feedback-symbol " + (opts.kind === "info" ? "info-symbol" : "ok-symbol");
       title.textContent = opts.title || "できました！";
@@ -39,8 +48,23 @@
       button.textContent = opts.button || "続ける";
       callback = typeof opts.onClose === "function" ? opts.onClose : null;
       show(layer); lock();
+      if(lesson1Active) button.focus({preventScroll:true});
     }
-    button?.addEventListener("click",()=>{ hide(layer); unlock(); const cb=callback; callback=null; if(cb) cb(); });
+    button?.addEventListener("click",()=>{
+      hide(layer); unlock();
+      if(lesson1Active){
+        previousInert.forEach(([el,value])=>{el.inert=value;});
+        previousInert=[];
+        if(returnFocus?.isConnected) returnFocus.focus({preventScroll:true});
+        returnFocus=null; lesson1Active=false;
+      }
+      const cb=callback; callback=null; if(cb) cb();
+    });
+    layer?.addEventListener("keydown",event=>{
+      if(!lesson1Active)return;
+      if(event.key==="Tab"){event.preventDefault();button.focus({preventScroll:true});}
+      if(event.key==="Escape"){event.preventDefault();button.click();}
+    });
     return {open};
   }
 
@@ -78,17 +102,25 @@
     teacherConfirm?.addEventListener("click",()=>{store.clear(); location.href="index.html?start=1";});
 
     let l1Done = stage > 1;
-    const l1Goal=$("lesson1Goal"), l2Section=$("lesson2Section");
-    const lesson1Hit=()=>toast("広告の部分を押しました。広告を見る必要がないときは、押さずにそのまま読み進めても大丈夫です。");
+    const l1Continue=$("lesson1ContinueButton"), l1Finish=$("lesson1Finish"), l2Section=$("lesson2Section");
+    const lesson1Hit=()=>{
+      if(store.get("started")!=="1" || !$("feedbackLayer").classList.contains("is-hidden"))return;
+      feedback.open({lesson1:true,kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは、広告を開いてもかまいません。",html:"<p>今回は記事の続きを読む練習です。広告の下にある記事を探してみましょう。</p>",button:"記事に戻る"});
+    };
     document.querySelectorAll("[data-lesson1-hit]").forEach(el=>el.addEventListener("click", lesson1Hit));
-    function checkL1(){
-      if(l1Done || store.get("started")!=="1")return;
-      if(isMostlyVisible(l1Goal,.45)){
-        l1Done=true; store.set("l1done",1); setProgress(2);
-        feedback.open({title:"そのまま読めました！",lead:"今回は、広告を閉じたり押したりしなくても大丈夫でした。",html:"<strong>今回のポイント</strong><p>広告があっても、そのまま記事を読み進められることがあります。</p>",onClose:()=>{show(l2Section);scrollToEl(l2Section);}});
-      }
+    function revealL1Finish(){
+      show(l1Finish);
+      l1Continue.setAttribute("aria-expanded","true");
+      hide(l1Continue);
     }
-    window.addEventListener("scroll",checkL1,{passive:true});
+    // L1-1は記事側の明示的な操作だけで完了する。スクロール判定を接続しない。
+    l1Continue?.addEventListener("click",()=>{
+      if(l1Done || store.get("started")!=="1" || !$("feedbackLayer").classList.contains("is-hidden"))return;
+      l1Done=true; store.set("l1done",1); setProgress(2);
+      feedback.open({lesson1:true,title:"できました！",lead:"広告の下にある、記事の続きを見つけられました。",html:"<p>広告が途中にあっても、押さずにそのまま記事を読み進められます。</p><p>『広告』『PR』などの表示も目印になります。</p>",button:"次の手順へ進む",onClose:()=>{
+        revealL1Finish();show(l2Section);l1Finish.focus({preventScroll:true});scrollToEl(l1Finish);
+      }});
+    });
 
     const normalChoices=document.querySelectorAll("[data-normal-story]"), promoChoice=document.querySelector("[data-promo-story]");
     const l3Section=$("lesson3Section"), storyTitle=$("storyTitle"), storyLead=$("storyLead");
@@ -131,7 +163,7 @@
 
     function restoreMain(s){
       setProgress(s);
-      if(s>=2){l1Done=true;show(l2Section);}
+      if(s>=2){l1Done=true;revealL1Finish();show(l2Section);}
       if(s>=3){hide(l2Section);show(l3Section);}
       if(s===3 && store.get("l3done")!=="1") showL3Bar();
       if(s>=4){l3Done=true;hide(l3Bar);show(l4Button);document.body.classList.remove("has-bottom-panel");}

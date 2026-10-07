@@ -1,0 +1,5 @@
+index.html: 重複IDなし・画像/リンク参照切れなし・外部参照なし・ARIA参照整合
+outing.html: 重複IDなし・画像/リンク参照切れなし・外部参照なし・ARIA参照整合
+全5画像およびouting.html: 元データとバイト一致
+L1-1旧スクロール判定なし・JavaScript通信処理なし・script-js.txt同期
+避ける指定の内部名なし（AdGuardフィルタ動作の保証ではない）
