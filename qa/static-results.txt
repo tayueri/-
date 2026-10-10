@@ -1,5 +1,10 @@
-index.html: 重複IDなし・画像/リンク参照切れなし・外部参照なし・ARIA参照整合
-outing.html: 重複IDなし・画像/リンク参照切れなし・外部参照なし・ARIA参照整合
-全5画像およびouting.html: 元データとバイト一致
-L1-1旧スクロール判定なし・JavaScript通信処理なし・script-js.txt同期
-避ける指定の内部名なし（AdGuardフィルタ動作の保証ではない）
+PASS index.html: balanced HTML / unique IDs
+PASS index.html: local references / anchors / ARIA / neutral names
+PASS outing.html: balanced HTML / unique IDs
+PASS outing.html: local references / anchors / ARIA / neutral names
+PASS No external JS communication; script-js.txt synchronized; no scroll completion
+PASS CSS balanced; no remote resources; explanations above full-screen layers
+PASS Original 44px / 48px close targets retained (actual geometry unverified)
+PASS All 5 image assets byte-identical to saved Beta 02
+PASS L1-5 / L1-6 approved campaign markup unchanged
+Browser render, horizontal overflow, iPhone Safari and AdGuard: UNVERIFIED

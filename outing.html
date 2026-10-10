@@ -14,36 +14,36 @@
         <span class="training-label">ネット広告 操作トレーニング</span>
         <strong id="progressText">Level 1　5 / 6</strong>
       </div>
-      <div class="header-tools"><span class="status-pill">練習用</span></div>
+      <div class="header-tools"><button id="teacherResetButton" class="teacher-reset-button is-hidden" type="button">講師用リセット</button><span class="status-pill">練習用</span></div>
     </header>
 
+    <div class="exercise-context"><span>練習の目的</span><p id="outingInstruction">読みたい記事を開いてください。</p></div>
     <div class="outing-wrap">
       <header class="outing-site-header">
         <div class="outing-brand-row">
-          <div class="outing-brand-mark" aria-hidden="true">◌</div>
-          <div><strong>週末のおでかけノート</strong><span>近場で見つける、小さな休日</span></div>
-          <div class="outing-menu" aria-hidden="true">☰</div>
+
+          <a class="outing-brand" href="#trainingScreen"><strong>週末のおでかけノート</strong><span>近場で見つける、小さな休日</span></a>
+          <details class="publisher-menu"><summary>メニュー</summary><nav aria-label="メニュー"><a href="#outingWalk" data-topic="outingWalk">散歩のヒント</a><a href="#outingCafe" data-topic="outingCafe">街歩きとおやつ</a><a href="#outingPacking" data-topic="outingPacking">旅じたく</a></nav></details>
         </div>
-        <nav><span>公園</span><span>街歩き</span><span>日帰り</span><span>季節</span></nav>
+        <nav class="outing-categories" aria-label="サイトカテゴリ"><a href="#outingWalk" data-topic="outingWalk">公園・散歩</a><a href="#outingCafe" data-topic="outingCafe">街歩き</a><a href="#outingPacking" data-topic="outingPacking">旅じたく</a></nav>
       </header>
 
-      <div id="outingInstruction" class="instruction teal">読みたい記事を開いてください。</div>
 
       <section id="outingHome" class="outing-home">
         <div class="outing-hero">
-          <span>今週のおすすめ</span>
+          <span>WEEKEND JOURNAL / OCTOBER 2026</span>
           <h1>気軽に出かける<br>秋の週末。</h1>
           <p>遠くまで行かなくても楽しめる、公園や街歩きのアイデアを集めました。</p>
         </div>
         <div class="outing-list">
           <button id="openLesson5Button" class="outing-story-card" type="button">
-            <div class="outing-story-visual park" aria-hidden="true"></div>
+            <div class="story-index" aria-hidden="true">01<span>WALK</span></div>
             <div><small>季節のおでかけ</small><strong>紅葉を楽しめる日帰り散歩コース</strong><p>歩きやすい服装で楽しむ、ゆったり半日プラン。</p></div>
           </button>
-          <div class="outing-story-card static-card">
-            <div class="outing-story-visual cafe" aria-hidden="true"></div>
-            <div><small>街歩き</small><strong>商店街で見つける小さなおやつ</strong><p>散歩の途中に立ち寄りたい気軽なお店。</p></div>
-          </div>
+          <a class="outing-story-card" href="#outingCafe" data-topic="outingCafe">
+            <div class="story-index" aria-hidden="true">02<span>TOWN</span></div>
+            <div><small>街歩き</small><strong>商店街で見つける小さなおやつ</strong><p>散歩の途中の寄り道を、ひとつの楽しみに。</p></div>
+          </a>
         </div>
       </section>
 
@@ -53,7 +53,8 @@
         <h1>紅葉を楽しめる<br>日帰り散歩コース</h1>
         <p class="article-deck">駅から歩きやすい公園を中心に、休憩をはさみながら楽しめる半日コース。朝を少しゆっくり過ごした日にもおすすめです。</p>
         <div class="outing-facts"><span>🚶 ゆっくり約2時間</span><span>☕ 休憩スポットあり</span></div>
-        <div class="outing-photo-faux" aria-hidden="true"><span>秋の公園をゆっくり歩く</span></div>
+        <p class="editorial-meta">週末のおでかけノート 編集部 <span>2026.10.02</span></p>
+        <section class="route-guide" aria-labelledby="routeTitle"><p class="article-kicker">HALF-DAY WALK</p><h2 id="routeTitle">休憩をはさむ、半日の歩き方</h2><ol><li><span>11:00</span><div><strong>駅前から並木道へ</strong><p>歩きやすい道を選び、ゆっくり出発。</p></div></li><li><span>11:30</span><div><strong>広場のベンチでひと休み</strong><p>飲み物を飲んで、季節の景色を楽しみます。</p></div></li><li><span>12:00</span><div><strong>街へ戻って軽い昼食</strong><p>体調に合わせて、ここで切り上げても。</p></div></li></ol><p class="route-note">近場の公園で楽しむためのモデルプランです。移動時間は場所や歩くペースによって変わります。</p></section>
         <section class="outing-copy-section"><h2>午前11時ごろから、のんびりスタート</h2><p>入口近くの並木道から歩き始めます。ベンチが多い道を選べば、無理なく休憩しながら楽しめます。</p><p>日差しのある日は飲み物を忘れずに。夕方は冷えやすいため、薄手の上着が一枚あると安心です。</p></section>
 
         <section id="lesson6Start" class="outing-related">
@@ -66,20 +67,21 @@
 
       <section id="level1Complete" class="completion-section is-hidden">
         <p class="completion-kicker">Level 1 完了 🎉</p>
-        <h2>普通の広告に落ち着いて対応できました。</h2>
+        <h2>6つの操作を練習しました。</h2>
         <div class="summary-grid two-col">
           <div class="summary-card"><span class="summary-number">1</span><strong>そのまま通る</strong><p>閉じる必要がない広告もあります。</p></div>
           <div class="summary-card"><span class="summary-number">2</span><strong>表示を見分ける</strong><p>「PR」「広告」も手がかりになります。</p></div>
           <div class="summary-card"><span class="summary-number">3</span><strong>邪魔なら閉じる</strong><p>普通の広告では×や閉じるが使えることがあります。</p></div>
           <div class="summary-card"><span class="summary-number">4</span><strong>少し待つ</strong><p>閉じる場所が後から現れる広告もあります。</p></div>
-          <div class="summary-card"><span class="summary-number">5</span><strong>Skipを使う</strong><p>動画広告ではスキップが後から出ることがあります。</p></div>
+          <div class="summary-card"><span class="summary-number">5</span><strong>スキップする</strong><p>動画広告ではスキップが後から出ることがあります。</p></div>
           <div class="summary-card"><span class="summary-number">6</span><strong>見た目で決めつけない</strong><p>広告の形が変わっても、慌てず操作します。</p></div>
         </div>
         <blockquote class="final-message">広告が出ても、まずは今したいことを思い出せば大丈夫。</blockquote>
         <p class="completion-note">次のLevelでは、画面内だけでは戻れないケースや、より注意が必要な表示を練習します。</p>
-        <a class="secondary-button link-button" href="index.html?start=1">Level 1をもう一度練習する</a>
+        <a id="practiceAgainButton" class="secondary-button link-button" href="index.html?start=1">Level 1をもう一度練習する</a>
       </section>
 
+      <section class="publisher-topics outing-topics" aria-label="週末の読みもの"><h2>週末の小さなヒント</h2><details id="outingWalk"><summary>散歩の前に決めておくこと</summary><p>出発する時間と帰る時間を先に決めておくと、無理のない予定を立てやすくなります。途中に休憩できる場所を一つ見つけておきましょう。</p></details><details id="outingCafe"><summary>商店街で見つける小さなおやつ</summary><p>行き先を決めすぎず、気になる店を一つだけ覗いてみる。それも街歩きの楽しみです。店頭の営業時間を確認し、休憩をはさみながらゆっくり歩きましょう。</p></details><details id="outingPacking"><summary>日帰りの旅じたく</summary><p>飲み物、ハンカチ、薄手の上着。短いおでかけは、普段使いのバッグで身軽に。天気と帰りの時刻を確認してから出かけましょう。</p></details></section>
       <footer class="site-footer outing-footer"><strong>週末のおでかけノート</strong><p>近場で見つける、小さな休日。</p><small>※「週末のおでかけノート」は本トレーニング用の架空サイトです。</small></footer>
     </div>
   </main>
@@ -124,6 +126,19 @@
       <button id="feedbackButton" class="primary-button" type="button">続ける</button>
     </div>
   </div>
+  <!-- 講師用リセット -->
+  <div id="teacherResetLayer" class="overlay feedback-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="teacherResetTitle">
+    <div class="feedback-card">
+      <div class="feedback-symbol reset-symbol">↺</div>
+      <h2 id="teacherResetTitle">最初からやり直しますか？</h2>
+      <p>この端末のLevel 1進捗をリセットします。</p>
+      <div class="dual-buttons">
+        <button id="teacherResetCancel" class="secondary-button" type="button">キャンセル</button>
+        <button id="teacherResetConfirm" class="danger-button" type="button">最初に戻す</button>
+      </div>
+    </div>
+  </div>
+
   <div id="lessonToast" class="lesson-toast is-hidden" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>

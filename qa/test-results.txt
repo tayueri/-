@@ -12,9 +12,13 @@ PASS 次の手順を実際に表示してL1-2へ接続
 PASS L1-2 PR選択は説明のみ
 PASS L1-2通常記事からL1-3
 PASS L1-3進捗リロード
-PASS L1-3広告を残して読むルート維持
+PASS L1-3はスクロールだけで完了しない
+PASS L1-3残して読む：本文操作で完了
+PASS L1-3閉じるだけでは完了しない
+PASS L1-3閉じた状態を通常リロードで保持
 PASS L1-3閉じるルート維持
-PASS L1-4広告クリックで閉じない
+PASS L1-4広告クリックで中立説明・元の広告保持
+PASS 重なる説明を閉じても元の全画面のスクロールロック保持
 PASS L1-4からSite B案内
 PASS L1-5 3秒未満は閉じる非表示
 PASS L1-5 3秒で閉じる表示
@@ -26,7 +30,26 @@ PASS L1-6から全体完了
 PASS 完了後リロード
 PASS teacher=1で講師操作表示
 PASS 講師リセット取消は保存状態維持
-PASS 講師リセットの従来動作維持
+PASS 講師リセット後もteacherを保持
 PASS start=1は教材の進捗だけをリセット
 PASS startをURLから除去・teacher保持
-TOTAL 31 PASS (DOM/event simulation; not a browser/device test)
+PASS 選んだ記事と本文の一致
+PASS 作り置きに合う本文を表示
+PASS 関連記事と表示状態をリロードで復元
+PASS カテゴリは教材内の読みものを開き、進捗を変えない
+PASS L1-3広告クリックは持続する説明だけ
+PASS L1-3説明中は本文完了を受け付けない
+PASS L1-5前にL1-6を開始しない
+PASS L1-5閉じる表示前は完了不可
+PASS L1-5説明中の完了操作を遮断
+PASS 広告へ戻ったあとロックを維持
+PASS L1-6スキップ表示前は完了不可
+PASS 説明中も待ち時間終了の表示を保持
+PASS L1-6説明から戻ってもロックを維持
+PASS L1-6説明後にスキップして完了
+PASS Site Bにも講師リセット表示
+PASS 再練習リンクもteacher保持
+PASS Site Bリセット後もteacher保持
+PASS 未到達のSite B直アクセスで段階を飛ばさない
+PASS 未開始のSite Bはteacherを保って入口へ戻す
+TOTAL 54 PASS (DOM/event simulation; not a browser/device test)

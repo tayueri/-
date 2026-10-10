@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f6f3ed">
-  <title>Level 1｜ネット広告 操作トレーニング</title>
+  <title>鶏肉のトマト煮｜暮らしの台所帖・練習用</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="main">
@@ -38,24 +38,18 @@
       </div>
     </header>
 
+    <div class="exercise-context"><span>練習の目的</span><p id="instructionBox">いつものように記事を読み進めてください。</p></div>
     <div id="siteAView" class="article-wrap">
       <header class="site-header">
         <div class="site-brand-row">
-          <div class="site-menu-mark" aria-hidden="true">☰</div>
-          <div class="site-brand">
-            <span class="site-brand-main">暮らしの台所帖</span>
-            <span class="site-brand-sub">毎日のごはんと小さな工夫</span>
-          </div>
-          <div class="site-search-mark" aria-hidden="true">⌕</div>
+          <a class="site-brand" href="#siteAView"><span class="site-brand-main">暮らしの台所帖</span><span class="site-brand-sub">毎日のごはんと小さな工夫</span></a>
+          <details class="publisher-menu"><summary>メニュー</summary><nav aria-label="メニュー"><a href="#siteAView">この記事</a><a href="#siteMeals" data-topic="siteMeals">献立のヒント</a><a href="#siteTools" data-topic="siteTools">台所の道具</a><a href="#publisherAbout" data-topic="publisherAbout">このサイトについて</a></nav></details>
         </div>
-        <nav class="site-nav" aria-label="サイトカテゴリ">
-          <span>レシピ</span><span>献立</span><span>時短</span><span>節約</span><span>暮らし</span>
-        </nav>
+        <nav class="site-nav" aria-label="サイトカテゴリ"><a href="#siteAView">レシピ</a><a href="#siteMeals" data-topic="siteMeals">献立</a><a href="#siteTools" data-topic="siteTools">台所の道具</a><a href="#siteLife" data-topic="siteLife">暮らし</a></nav>
       </header>
-
-      <div id="instructionBox" class="instruction">いつものように記事を読み進めてください。</div>
-
+      <div class="publication-layout">
       <article id="recipeArticle" class="recipe-article lesson1-reading">
+        <div id="recipeContent">
         <div class="breadcrumbs">ホーム <span>›</span> レシピ <span>›</span> 主菜</div>
         <div class="article-tags"><span>主菜</span><span>フライパン</span><span>25分以内</span></div>
         <h1 class="article-title">フライパンひとつで簡単！<br>鶏肉のトマト煮</h1>
@@ -69,9 +63,10 @@
           <img src="assets/chicken-tomato-stew.webp" alt="鶏肉と玉ねぎをトマトソースで煮込んだ料理" width="1200" height="800" decoding="async">
           <figcaption>鶏肉とトマトをじっくり煮込んだ、やさしい味わいの一皿。</figcaption>
         </figure>
-        <div class="article-lead-box"><strong>このレシピのポイント</strong><p>鶏肉に焼き色をつけてから煮込むと、香ばしさが加わります。トマトの酸味が気になるときは、仕上げに砂糖をほんの少し加えるのがコツです。</p></div>
+        <div id="recipePoints" class="article-lead-box"><strong>このレシピのポイント</strong><p>鶏肉に焼き色をつけてから煮込むと、香ばしさが加わります。トマトの酸味が気になるときは、仕上げに砂糖をほんの少し加えるのがコツです。</p></div>
 
-        <section class="recipe-section ingredient-section">
+        <nav class="article-index" aria-label="この記事の目次"><span>この記事の内容</span><a href="#recipeIngredients">材料</a><a href="#recipeSteps">作り方</a></nav>
+        <section id="recipeIngredients" class="recipe-section ingredient-section">
           <div class="section-heading-row"><h2>材料</h2><span>2〜3人分</span></div>
           <dl class="ingredient-list">
             <div><dt>鶏もも肉</dt><dd>1枚（約300g）</dd></div><div><dt>玉ねぎ</dt><dd>1/2個</dd></div>
@@ -80,7 +75,7 @@
           </dl>
         </section>
 
-        <section class="recipe-section">
+        <section id="recipeSteps" class="recipe-section">
           <div class="section-heading-row"><h2>作り方</h2><span>全4工程</span></div>
           <ol class="steps">
             <li><span>1</span><div><strong>下ごしらえをする</strong><p>鶏肉を食べやすい大きさに切り、玉ねぎを薄切りにします。</p></div></li>
@@ -115,22 +110,23 @@
           </div>
         </section>
 
+        </div>
         <!-- L1-2 -->
         <section id="lesson2Section" class="related-reading is-hidden">
           <div class="article-divider"></div>
           <p class="related-label">あわせて読みたい</p>
-          <h2 class="small-section-title">次に読みたい記事を1つ選んでください。</h2>
+          <h2 class="small-section-title">こちらの記事もおすすめです</h2>
           <div class="choice-list">
             <button class="story-choice" type="button" data-story="stew" data-normal-story>
               <img src="assets/stew-cooking-tips.webp" alt="" width="640" height="640" loading="lazy" decoding="async">
               <span><small>料理の基本</small><strong>煮込み料理をおいしく仕上げる3つのコツ</strong><em>火加減や水分調整のポイント。</em></span>
             </button>
             <button class="story-choice" type="button" data-promo-story>
-              <div class="choice-placeholder" aria-hidden="true">時短</div>
+              <img src="assets/kitchen-storage.webp" alt="キッチン収納のアイテム" width="1000" height="600" loading="lazy" decoding="async">
               <span><small>PR</small><strong>毎日の料理をもっと手軽に</strong><em>忙しい日にうれしいキッチンアイテム特集。</em></span>
             </button>
             <button class="story-choice" type="button" data-story="prep" data-normal-story>
-              <div class="choice-placeholder warm" aria-hidden="true">作り置き</div>
+              <img src="assets/chicken-tomato-stew.webp" alt="作り置きできる煮込み料理" width="1200" height="800" loading="lazy" decoding="async">
               <span><small>暮らし</small><strong>忙しい日の作り置きアイデア</strong><em>無理なく続ける小さな工夫。</em></span>
             </button>
           </div>
@@ -140,17 +136,23 @@
         <section id="lesson3Section" class="recipe-section is-hidden">
           <div class="article-divider"></div>
           <div class="breadcrumbs">ホーム <span>›</span> 読みもの <span>›</span> 料理のコツ</div>
-          <h2 id="storyTitle" class="article-subtitle">煮込み料理をおいしく仕上げる3つのコツ</h2>
+          <p class="article-kicker">料理と暮らしの読みもの</p>
+          <h1 id="storyTitle" class="article-subtitle">煮込み料理をおいしく仕上げる3つのコツ</h1>
           <p id="storyLead" class="article-deck">ちょっとした火加減と水分調整で、いつもの煮込み料理がぐっと作りやすくなります。</p>
+          <p class="editorial-meta">暮らしの台所帖 編集部 <span>2026.09.28</span></p>
+          <figure class="story-photo"><img id="storyPhoto" src="assets/stew-cooking-tips.webp" alt="鍋で煮込み料理を作る様子" width="640" height="640" loading="lazy"><figcaption id="storyCaption">火加減と水分を見ながら、少しずつ味を整えます。</figcaption></figure>
           <div class="tip-stack">
-            <div><strong>1　最初に香ばしさをつける</strong><p>肉や野菜を軽く焼いてから煮込むと、味に奥行きが出ます。</p></div>
-            <div><strong>2　ふたの開け閉めで水分を調整</strong><p>煮詰まりすぎたら少量の水を足し、ゆるいときはふたを外して調整します。</p></div>
-            <div><strong>3　最後に味を整える</strong><p>塩味や酸味は煮込み終わりに確認すると、調整しやすくなります。</p></div>
+            <div><strong id="storyTip1Title">1　最初に香ばしさをつける</strong><p id="storyTip1Text">肉や野菜を軽く焼いてから煮込むと、味に奥行きが出ます。</p></div>
+            <div><strong id="storyTip2Title">2　ふたの開け閉めで水分を調整</strong><p id="storyTip2Text">煮詰まりすぎたら少量の水を足し、ゆるいときはふたを外して調整します。</p></div>
+            <div><strong id="storyTip3Title">3　最後に味を整える</strong><p id="storyTip3Text">塩味や酸味は煮込み終わりに確認すると、調整しやすくなります。</p></div>
           </div>
-          <div id="lesson3Goal" class="read-marker"><strong>ここまで読めました。</strong><span>下にも記事が続きます。</span></div>
-          <button id="openLesson4Button" class="article-button is-hidden" type="button">もう1本、記事を読む</button>
+          <p id="lesson3Goal" class="article-closing">少しずつ、自分の台所に合ったやり方を見つけてみてください。続きでは、仕上げのひと工夫をご紹介します。</p>
+          <button id="lesson3ContinueButton" class="article-button" type="button">この記事の続きを読む <span aria-hidden="true">→</span></button>
+          <div id="lesson3Finish" class="is-hidden"><h2>毎日の料理に、ひと工夫</h2><p>一度に全部を変える必要はありません。まずは、今日の料理で試しやすいことから取り入れてみましょう。</p></div>
+          <button id="openLesson4Button" class="article-button is-hidden" type="button">味つけの基本の記事を読む</button>
         </section>
 
+        <section id="lesson4Article" class="recipe-section is-hidden"><p class="article-kicker">料理の基本</p><h2>味つけの基本｜少しずつ、最後に整える</h2><p>煮込み料理は、火にかけている間に水分が減って味が変わります。仕上げに一度味をみて、塩やこしょうを少しずつ加えると調整しやすくなります。</p><p>ひと口みたら、よく混ぜてからもう一度。急いで調味料を加えすぎないことが、いつもの味に近づける小さなコツです。</p></section>
         <!-- L1-4後 -->
         <section id="siteATransition" class="transition-card is-hidden">
           <span>暮らしの台所帖での練習はここまで</span>
@@ -159,12 +161,19 @@
           <a id="goSiteBButton" class="primary-button link-button" href="outing.html">週末のおでかけ記事を見る</a>
         </section>
 
+        <section id="siteTopics" class="publisher-topics" aria-label="台所の読みもの"><h2>台所の小さな読みもの</h2>
+          <details id="siteMeals"><summary>献立のヒント</summary><p>主菜を決めたら、冷蔵庫の野菜で小さな副菜を一品。トマト煮の日は、葉もののサラダや温野菜を添えると準備をまとめやすくなります。</p></details>
+          <details id="siteTools"><summary>台所の道具</summary><p>使う頻度の高い道具は、取り出しやすい場所へ。調理台に置くものを少し減らすだけでも、下ごしらえのスペースが作れます。</p></details>
+          <details id="siteLife"><summary>暮らしの工夫</summary><p>夕食の準備を始める前に、今日使う材料と器を出しておきます。片づけも一度に済ませようとせず、料理の合間に少しずつ進めましょう。</p></details>
+        </section>
         <footer class="site-footer">
           <strong>暮らしの台所帖</strong><p>毎日のごはんと暮らしを、少しだけラクに。</p>
-          <div class="footer-links"><span>運営情報</span><span>お問い合わせ</span><span>利用について</span></div>
+          <details id="publisherAbout"><summary>このサイトについて</summary><p>料理と暮らしの記事を読むための、トレーニング用の架空メディアです。商品案内・記事・編集部名は教材内の設定であり、購入や外部への送信は行いません。</p></details>
           <small>※「暮らしの台所帖」は本トレーニング用の架空サイトです。</small>
         </footer>
       </article>
+      <aside class="publisher-sidebar" aria-label="編集部から"><p class="sidebar-kicker">FROM THE EDITOR</p><h2>今日の台所から。</h2><p>手をかける日も、手を抜く日も。毎日の食卓に取り入れやすい、小さな工夫をお届けします。</p><a href="#siteMeals" data-topic="siteMeals">今夜の献立を考える <span aria-hidden="true">→</span></a><a href="#siteLife" data-topic="siteLife">暮らしの工夫を読む <span aria-hidden="true">→</span></a><p class="sidebar-note">KITCHEN JOURNAL<br>2026 AUTUMN</p></aside>
+      </div>
     </div>
   </main>
 
