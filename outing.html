@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="outing-document">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -17,79 +17,100 @@
       <div class="header-tools"><button id="teacherResetButton" class="teacher-reset-button is-hidden" type="button">講師用リセット</button><span class="status-pill">練習用</span></div>
     </header>
 
-    <div class="exercise-context"><span>練習の目的</span><p id="outingInstruction">読みたい記事を開いてください。</p></div>
+    <div class="exercise-context"><span>練習の目的</span><p id="outingInstruction">「紅葉を楽しめる日帰り散歩コース」の記事を開いてください。</p></div>
     <div class="outing-wrap">
       <header class="outing-site-header">
         <div class="outing-brand-row">
-
-          <a class="outing-brand" href="#trainingScreen"><strong>週末のおでかけノート</strong><span>近場で見つける、小さな休日</span></a>
-          <details class="publisher-menu"><summary>メニュー</summary><nav aria-label="メニュー"><a href="#outingWalk" data-topic="outingWalk">散歩のヒント</a><a href="#outingCafe" data-topic="outingCafe">街歩きとおやつ</a><a href="#outingPacking" data-topic="outingPacking">旅じたく</a></nav></details>
+          <a class="outing-brand" href="#outingHome" data-outing-home><strong>週末のおでかけノート</strong><span>近場で見つける、小さな休日</span></a>
+          <details class="publisher-menu"><summary>メニュー</summary><nav aria-label="メニュー"><a href="#outingHome" data-outing-home>ホーム</a><a href="#outingWalk" data-topic="outingWalk">公園と散歩</a><a href="#outingCafe" data-topic="outingCafe">街歩き</a><a href="#outingPacking" data-topic="outingPacking">旅じたく</a></nav></details>
         </div>
-        <nav class="outing-categories" aria-label="サイトカテゴリ"><a href="#outingWalk" data-topic="outingWalk">公園・散歩</a><a href="#outingCafe" data-topic="outingCafe">街歩き</a><a href="#outingPacking" data-topic="outingPacking">旅じたく</a></nav>
+        <nav class="outing-categories" aria-label="サイトカテゴリ"><a href="#outingHome" data-outing-home>ホーム</a><a href="#outingWalk" data-topic="outingWalk">公園と散歩</a><a href="#outingCafe" data-topic="outingCafe">街歩き</a><a href="#outingPacking" data-topic="outingPacking">旅じたく</a></nav>
       </header>
 
-
       <section id="outingHome" class="outing-home">
-        <div class="outing-hero">
-          <span>WEEKEND JOURNAL / OCTOBER 2026</span>
-          <h1>気軽に出かける<br>秋の週末。</h1>
-          <p>遠くまで行かなくても楽しめる、公園や街歩きのアイデアを集めました。</p>
+        <div class="journal-heading"><p>近場の休日を楽しむ読みもの</p><span>2026年10月</span></div>
+        <div class="journal-feature-grid">
+          <div class="journal-feature">
+            <p class="journal-section-label">秋のおでかけ特集</p>
+            <h1>歩いて、ひと休み。<br>気軽に楽しむ秋の休日</h1>
+            <p>遠くへ行かなくても、いつもの街に小さな発見があります。休憩をはさむ散歩と、寄り道のアイデアをお届けします。</p>
+            <button id="openLesson5Button" class="journal-feature-link" type="button"><span>公園と散歩</span><strong>紅葉を楽しめる日帰り散歩コース</strong><small>歩く時間は約1時間。休憩を含めて約2時間のモデルプラン。</small><em>記事を読む <span aria-hidden="true">→</span></em></button>
+          </div>
+          <aside class="journal-aside">
+            <h2>休日の小さなヒント</h2>
+            <a href="#outingWalk" data-topic="outingWalk"><span>公園と散歩</span><strong>散歩の前に決めておくこと</strong><small>帰る時間と休憩場所を、出発前に。</small></a>
+            <a href="#outingPacking" data-topic="outingPacking"><span>旅じたく</span><strong>日帰りのおでかけを身軽に</strong><small>天気に合わせて、必要なものを選ぶ。</small></a>
+            <p>編集部のノート<br>予定を詰めすぎない休日も、ひとつの楽しみ方です。</p>
+          </aside>
         </div>
-        <div class="outing-list">
-          <button id="openLesson5Button" class="outing-story-card" type="button">
-            <div class="story-index" aria-hidden="true">01<span>WALK</span></div>
-            <div><small>季節のおでかけ</small><strong>紅葉を楽しめる日帰り散歩コース</strong><p>歩きやすい服装で楽しむ、ゆったり半日プラン。</p></div>
-          </button>
-          <a class="outing-story-card" href="#outingCafe" data-topic="outingCafe">
-            <div class="story-index" aria-hidden="true">02<span>TOWN</span></div>
-            <div><small>街歩き</small><strong>商店街で見つける小さなおやつ</strong><p>散歩の途中の寄り道を、ひとつの楽しみに。</p></div>
-          </a>
-        </div>
+        <section class="journal-latest" aria-labelledby="latestTitle">
+          <div class="journal-section-heading"><h2 id="latestTitle">新着の読みもの</h2><span>気になる記事からどうぞ</span></div>
+          <div class="journal-story-grid">
+            <a href="#outingCafe" data-topic="outingCafe"><span class="journal-story-topic">街歩き</span><h3>商店街で見つける小さなおやつ</h3><p>目的地の手前で、少しだけ寄り道。歩いたあとの休憩も楽しみに。</p><small>2026.10.08　編集部</small></a>
+            <a href="#outingWeather" data-topic="outingWeather"><span class="journal-story-topic">季節のおでかけ</span><h3>秋の散歩に、上着を一枚</h3><p>昼と夕方の気温差を考えて、脱ぎ着しやすい服装を。</p><small>2026.10.05　編集部</small></a>
+            <a href="#outingPacking" data-topic="outingPacking"><span class="journal-story-topic">旅じたく</span><h3>普段のバッグで楽しむ日帰り旅</h3><p>荷物を増やしすぎず、帰りまで心地よく過ごす準備を。</p><small>2026.10.02　編集部</small></a>
+          </div>
+        </section>
       </section>
 
       <article id="outingArticle" class="outing-article is-hidden">
-        <div class="breadcrumbs">ホーム <span>›</span> 季節のおでかけ <span>›</span> 秋</div>
-        <span class="outing-category">季節のおでかけ</span>
-        <h1>紅葉を楽しめる<br>日帰り散歩コース</h1>
-        <p class="article-deck">駅から歩きやすい公園を中心に、休憩をはさみながら楽しめる半日コース。朝を少しゆっくり過ごした日にもおすすめです。</p>
-        <div class="outing-facts"><span>🚶 ゆっくり約2時間</span><span>☕ 休憩スポットあり</span></div>
+        <div class="breadcrumbs"><a href="#outingHome" data-outing-home>ホーム</a> <span>›</span> 公園と散歩 <span>›</span> 秋のおでかけ</div>
+        <span class="outing-category">公園と散歩</span>
+        <h1>紅葉を楽しめる日帰り散歩コース</h1>
+        <p class="article-deck">並木道から公園へ。途中でベンチや商店街に寄りながら、急がず歩く秋の半日プランです。</p>
         <p class="editorial-meta">週末のおでかけノート 編集部 <span>2026.10.02</span></p>
-        <section class="route-guide" aria-labelledby="routeTitle"><p class="article-kicker">HALF-DAY WALK</p><h2 id="routeTitle">休憩をはさむ、半日の歩き方</h2><ol><li><span>11:00</span><div><strong>駅前から並木道へ</strong><p>歩きやすい道を選び、ゆっくり出発。</p></div></li><li><span>11:30</span><div><strong>広場のベンチでひと休み</strong><p>飲み物を飲んで、季節の景色を楽しみます。</p></div></li><li><span>12:00</span><div><strong>街へ戻って軽い昼食</strong><p>体調に合わせて、ここで切り上げても。</p></div></li></ol><p class="route-note">近場の公園で楽しむためのモデルプランです。移動時間は場所や歩くペースによって変わります。</p></section>
-        <section class="outing-copy-section"><h2>午前11時ごろから、のんびりスタート</h2><p>入口近くの並木道から歩き始めます。ベンチが多い道を選べば、無理なく休憩しながら楽しめます。</p><p>日差しのある日は飲み物を忘れずに。夕方は冷えやすいため、薄手の上着が一枚あると安心です。</p></section>
-
-        <section id="lesson6Start" class="outing-related">
-          <span>旅じたくの読みもの</span>
-          <h2>日帰り旅行の持ちものをチェック</h2>
-          <p>荷物を増やしすぎず、あると便利なものをまとめました。</p>
-          <button id="openLesson6Button" class="outing-link-button" type="button">この記事を読む</button>
+        <dl class="outing-detail-list"><div><dt>過ごし方</dt><dd>近場の公園と街歩き</dd></div><div><dt>時間の目安</dt><dd>歩く時間 約1時間／休憩を含め 約2時間</dd></div><div><dt>持ち物</dt><dd>飲み物、ハンカチ、薄手の上着</dd></div></dl>
+        <nav class="article-toc journal-toc" aria-label="記事の目次"><a href="#routePlan">半日のモデルコース</a><a href="#walkRest">休憩を入れるコツ</a><a href="#lesson6Start">持ち物の記事</a></nav>
+        <section id="routePlan" class="route-guide" aria-labelledby="routeTitle">
+          <p class="article-kicker">HALF-DAY WALK</p><h2 id="routeTitle">休憩をはさむ、半日のモデルコース</h2>
+          <ol><li><span>11:00</span><div><strong>駅前から並木道へ</strong><p>歩きやすい道を選び、ゆっくり出発。景色を見ながら公園へ向かいます。</p></div></li><li><span>11:30</span><div><strong>公園の広場でひと休み</strong><p>ベンチで飲み物を飲み、季節の景色を楽しみます。遠くまで歩かなくても大丈夫。</p></div></li><li><span>12:00</span><div><strong>商店街で昼食の寄り道</strong><p>公園を出て街へ。気になる店があれば営業時間を確認して、休憩をはさみます。</p></div></li><li><span>13:00</span><div><strong>駅へ戻って、午後はゆっくり</strong><p>帰りの時間を先に決めておくと、余裕のある休日に。</p></div></li></ol>
+          <p class="route-note">近場の公園で楽しむためのモデルプランです。移動時間は場所や歩くペースによって変わります。</p>
         </section>
+        <section id="walkRest" class="outing-copy-section"><h2>たくさん歩くより、気持ちよく帰ること</h2><p>途中で座れる場所をひとつ見つけておくと、予定を変えやすくなります。景色を楽しんだら、早めに引き返してもよいのです。</p><p>日差しのある日は飲み物を、夕方まで出かける日は上着を。出発前に天気と帰りの時刻を確認しておきましょう。</p></section>
+        <section id="lesson6Start" class="outing-related"><span>あわせて読みたい</span><h2>日帰り旅行の持ちもの</h2><p>荷物を増やしすぎず、あると便利なものをまとめました。</p><button id="openLesson6Button" class="outing-link-button" type="button">この記事を読む <span aria-hidden="true">→</span></button></section>
+      </article>
+
+      <article id="packingArticle" class="outing-article is-hidden">
+        <div class="breadcrumbs"><a href="#outingHome" data-outing-home>ホーム</a> <span>›</span> 旅じたく</div>
+        <span class="outing-category">旅じたく</span><h1>日帰り旅行の持ちもの</h1>
+        <p class="article-deck">気軽なおでかけは、いつものバッグで。天気や過ごし方に合わせて、必要なものを少しだけ加えてみましょう。</p>
+        <p class="editorial-meta">週末のおでかけノート 編集部 <span>2026.10.02</span></p>
+        <section class="outing-copy-section"><h2>まずは、普段使うものを確認</h2><p>財布、スマートフォン、家の鍵など、普段持ち歩くものから確認します。出発前にバッグの中を一度見れば、忘れ物に気づきやすくなります。</p></section>
+        <section class="outing-copy-section"><h2>季節に合わせて、三つを足す</h2><dl class="packing-list"><div><dt>飲み物</dt><dd>途中で休憩するときに。歩く距離や天気に合わせて用意します。</dd></div><div><dt>ハンカチ</dt><dd>手を洗ったあとや、散歩中に汗をかいたときに。</dd></div><div><dt>薄手の上着</dt><dd>昼と夕方の気温差に合わせて、脱ぎ着できるものを。</dd></div></dl></section>
+        <section class="outing-copy-section"><h2>帰りまで身軽に過ごすために</h2><p>「念のため」の荷物をたくさん詰めるより、行き先と過ごし方を決めて必要なものを選びましょう。買い物をする予定なら、バッグに少し余裕を残しておくと便利です。</p><p>天気と帰りの時刻を確認できたら、準備はおしまい。無理のない予定で、休日を楽しみましょう。</p></section>
+        <div class="article-session-return"><span>操作トレーニング</span><p>記事へ進めました。ここで6体験を振り返りましょう。</p><button id="finishLevel1Button" class="outing-link-button" type="button">6体験を振り返る</button></div>
       </article>
 
       <section id="level1Complete" class="completion-section is-hidden">
-        <p class="completion-kicker">Level 1 完了 🎉</p>
-        <h2>6つの操作を練習しました。</h2>
+        <p class="completion-kicker">Level 1 完了</p><h2>6つの操作を練習しました。</h2>
         <div class="summary-grid two-col">
           <div class="summary-card"><span class="summary-number">1</span><strong>そのまま通る</strong><p>閉じる必要がない広告もあります。</p></div>
           <div class="summary-card"><span class="summary-number">2</span><strong>表示を見分ける</strong><p>「PR」「広告」も手がかりになります。</p></div>
-          <div class="summary-card"><span class="summary-number">3</span><strong>邪魔なら閉じる</strong><p>普通の広告では×や閉じるが使えることがあります。</p></div>
+          <div class="summary-card"><span class="summary-number">3</span><strong>邪魔なら閉じる</strong><p>本文が読めるなら、残してもかまいません。</p></div>
           <div class="summary-card"><span class="summary-number">4</span><strong>少し待つ</strong><p>閉じる場所が後から現れる広告もあります。</p></div>
           <div class="summary-card"><span class="summary-number">5</span><strong>スキップする</strong><p>動画広告ではスキップが後から出ることがあります。</p></div>
-          <div class="summary-card"><span class="summary-number">6</span><strong>見た目で決めつけない</strong><p>広告の形が変わっても、慌てず操作します。</p></div>
+          <div class="summary-card"><span class="summary-number">6</span><strong>目的を思い出す</strong><p>見た目が変わっても、今読みたいものを確かめます。</p></div>
         </div>
-        <blockquote class="final-message">広告が出ても、まずは今したいことを思い出せば大丈夫。</blockquote>
-        <p class="completion-note">次のLevelでは、画面内だけでは戻れないケースや、より注意が必要な表示を練習します。</p>
+        <blockquote class="final-message">広告が出ても、今したいことを確かめて落ち着いて操作しましょう。</blockquote>
+        <p class="completion-note">待ち時間や閉じ方は広告によって異なります。迷った体験は、講師と一緒に振り返りましょう。</p>
         <a id="practiceAgainButton" class="secondary-button link-button" href="index.html?start=1">Level 1をもう一度練習する</a>
       </section>
 
-      <section class="publisher-topics outing-topics" aria-label="週末の読みもの"><h2>週末の小さなヒント</h2><details id="outingWalk"><summary>散歩の前に決めておくこと</summary><p>出発する時間と帰る時間を先に決めておくと、無理のない予定を立てやすくなります。途中に休憩できる場所を一つ見つけておきましょう。</p></details><details id="outingCafe"><summary>商店街で見つける小さなおやつ</summary><p>行き先を決めすぎず、気になる店を一つだけ覗いてみる。それも街歩きの楽しみです。店頭の営業時間を確認し、休憩をはさみながらゆっくり歩きましょう。</p></details><details id="outingPacking"><summary>日帰りの旅じたく</summary><p>飲み物、ハンカチ、薄手の上着。短いおでかけは、普段使いのバッグで身軽に。天気と帰りの時刻を確認してから出かけましょう。</p></details></section>
-      <footer class="site-footer outing-footer"><strong>週末のおでかけノート</strong><p>近場で見つける、小さな休日。</p><small>※「週末のおでかけノート」は本トレーニング用の架空サイトです。</small></footer>
+      <section class="publisher-topics outing-topics" aria-label="週末の読みもの"><h2>休日の読みもの</h2>
+        <details id="outingWalk"><summary>散歩の前に決めておくこと</summary><p class="editorial-meta">公園と散歩　編集部</p><h3>帰る時間から予定を考える</h3><p>出発する時間と帰る時間を先に決めておくと、無理のない予定を立てやすくなります。途中に休憩できる場所をひとつ見つけておきましょう。</p><p>歩いてみて気になる道があれば、次のおでかけの楽しみに。予定を全部こなす必要はありません。</p></details>
+        <details id="outingCafe"><summary>商店街で見つける小さなおやつ</summary><p class="editorial-meta">街歩き　2026.10.08</p><h3>寄り道は、ひとつだけ決めて</h3><p>行き先を決めすぎず、気になる店をひとつだけのぞいてみる。それも街歩きの楽しみです。店頭の営業時間を確認し、休憩をはさみながらゆっくり歩きましょう。</p><p>おやつを買ったら、近くのベンチでひと休み。帰り道を短めにすれば、午後の時間にも余裕ができます。</p></details>
+        <details id="outingPacking"><summary>普段のバッグで楽しむ日帰り旅</summary><p class="editorial-meta">旅じたく　2026.10.02</p><h3>行き先に合わせて持ち物を選ぶ</h3><p>飲み物、ハンカチ、薄手の上着。短いおでかけは、普段使いのバッグで身軽に。天気と帰りの時刻を確認してから出かけましょう。</p><p>荷物を増やしすぎず、休憩しながら歩く予定にしてみませんか。</p></details>
+        <details id="outingWeather"><summary>秋の散歩に、上着を一枚</summary><p class="editorial-meta">季節のおでかけ　2026.10.05</p><h3>昼と夕方の気温差に合わせる</h3><p>日中は歩くと暖かくても、日が傾くころには冷えることがあります。脱ぎ着しやすい上着を一枚、バッグに入れておくと調整しやすくなります。</p><p>出発前に天気を確認し、予定を詰めずに帰りの時間も考えておきましょう。</p></details>
+      </section>
+      <footer class="site-footer outing-footer"><strong>週末のおでかけノート</strong><p>近場で見つける、小さな休日。</p><small>本トレーニング用の架空メディアです。記事は練習用のモデルプランで、実在の施設や旅行商品への案内ではありません。</small></footer>
     </div>
+
   </main>
 
   <!-- L1-5: 時間差で閉じる -->
   <div id="lesson5Layer" class="full-screen-layer is-hidden" role="dialog" aria-modal="true" aria-label="広告">
     <div class="full-screen-campaign campaign-outdoor">
-      <div class="campaign-topbar"><span>広告</span><span id="lesson5Counter">あと3秒</span></div>
+      <div class="campaign-topbar"><span>広告</span><span id="lesson5Counter">あと10秒</span></div>
       <button id="lesson5Close" class="timed-close is-hidden" type="button">× 閉じる</button>
       <button class="campaign-image-button" type="button" data-lesson5-hit>
         <img src="assets/weekend-outdoor.webp" alt="" width="1400" height="1050" decoding="async">
@@ -105,7 +126,7 @@
   <!-- L1-6: 動画広告風＋Skip -->
   <div id="lesson6Layer" class="full-screen-layer video-style-layer is-hidden" role="dialog" aria-modal="true" aria-label="動画広告">
     <div class="video-stage">
-      <div class="video-topbar"><span>広告</span><span id="lesson6Counter">0:05</span></div>
+      <div class="video-topbar"><span>広告</span><span id="lesson6Counter">0:10</span></div>
       <button id="lesson6Skip" class="skip-button is-hidden" type="button">広告をスキップ <span>›</span></button>
       <button class="moving-frame" type="button" data-lesson6-hit aria-label="広告の商品画像">
         <img src="assets/travel-kit.webp" alt="" width="1400" height="1050" decoding="async">

@@ -35,7 +35,7 @@
       lesson1Active = opts.lesson1 === true;
       layer.classList.toggle("lesson1-feedback", lesson1Active);
       {
-        layer.setAttribute("aria-describedby","feedbackLead feedbackLesson");
+        layer.setAttribute("aria-describedby",opts.html ? "feedbackLead feedbackLesson" : "feedbackLead");
         returnFocus = document.activeElement;
         previousInert = [$("introScreen"), $("trainingScreen"), $("lesson3Bar"), $("lesson4Layer"), $("lesson5Layer"), $("lesson6Layer")].filter(Boolean).map(el=>[el,el.inert]);
         previousInert.forEach(([el])=>{el.inert=true;});
@@ -45,6 +45,7 @@
       title.textContent = opts.title || "できました！";
       lead.textContent = opts.lead || "";
       lesson.innerHTML = opts.html || "";
+      if(opts.html) show(lesson); else hide(lesson);
       button.textContent = opts.button || "続ける";
       callback = typeof opts.onClose === "function" ? opts.onClose : null;
       show(layer); lock();
@@ -128,7 +129,7 @@
     const l1Continue=$("lesson1ContinueButton"), l1Finish=$("lesson1Finish"), l2Section=$("lesson2Section");
     const lesson1Hit=()=>{
       if(store.get("started")!=="1" || !$("feedbackLayer").classList.contains("is-hidden"))return;
-      feedback.open({lesson1:true,kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは、広告を開いてもかまいません。",html:"<p>今回は記事の続きを読む練習です。広告の下にある記事を探してみましょう。</p>",button:"記事に戻る"});
+      feedback.open({lesson1:true,kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは、広告を開いてもかまいません。今回は記事を読む練習です。記事に戻って、続きを探しましょう。",html:"",button:"記事に戻る"});
     };
     document.querySelectorAll("[data-lesson1-hit]").forEach(el=>el.addEventListener("click", lesson1Hit));
     function revealL1Finish(){
@@ -140,14 +141,14 @@
     l1Continue?.addEventListener("click",()=>{
       if(l1Done || store.get("started")!=="1" || !$("feedbackLayer").classList.contains("is-hidden"))return;
       l1Done=true; store.set("l1done",1); setProgress(2);
-      feedback.open({lesson1:true,title:"できました！",lead:"広告の下にある、記事の続きを見つけられました。",html:"<p>広告が途中にあっても、押さずにそのまま記事を読み進められます。</p><p>『広告』『PR』などの表示も目印になります。</p>",button:"次の手順へ進む",onClose:()=>{
-        revealL1Finish();show(l2Section);$("instructionBox").textContent="次に読む記事を選んでください。";l1Finish.focus({preventScroll:true});scrollToEl(l1Finish);
+      feedback.open({lesson1:true,title:"記事の続きを開けました",lead:"広告が途中にあっても、その下に記事は続いています。「広告」の表示も目印になります。",html:"",button:"記事の続きへ",onClose:()=>{
+        revealL1Finish();show(l2Section);$("instructionBox").textContent="次に読む記事をひとつ選んでください。";l1Finish.focus({preventScroll:true});scrollToEl(l1Finish);
       }});
     });
 
     const normalChoices=document.querySelectorAll("[data-normal-story]"), promoChoice=document.querySelector("[data-promo-story]");
     const l3Section=$("lesson3Section"), storyTitle=$("storyTitle"), storyLead=$("storyLead");
-    promoChoice?.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"PRの案内を開きました",lead:"PRは、商品やサービスを紹介する表示です。",html:"<strong>見分ける手がかり</strong><p>記事に似た広告には、『PR』『広告』『スポンサー』などの表示が付いていることがあります。</p><p class=\"caution\">広告だから危険という意味ではありません。今回は記事を選ぶ練習です。</p>",button:"もう一度選ぶ"}));
+    promoChoice?.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"PRの案内を開きました",lead:"PRは、ここでは商品やサービスを紹介する表示です。案内を見ること自体が危険という意味ではありません。今回は読む記事を選び直してみましょう。",html:"",button:"記事を選び直す"}));
     const storyContent={
       stew:{title:"煮込み料理をおいしく仕上げる3つのコツ",lead:"ちょっとした火加減と水分調整で、いつもの煮込み料理がぐっと作りやすくなります。",photo:"assets/stew-cooking-tips.webp",alt:"鍋で煮込み料理を作る様子",caption:"火加減と水分を見ながら、少しずつ味を整えます。",tips:[["1　最初に香ばしさをつける","肉や野菜を軽く焼いてから煮込むと、味に奥行きが出ます。"],["2　ふたの開け閉めで水分を調整","煮詰まりすぎたら少量の水を足し、ゆるいときはふたを外して調整します。"],["3　最後に味を整える","塩味や酸味は煮込み終わりに確認すると、調整しやすくなります。"]]},
       prep:{title:"忙しい日の作り置きアイデア",lead:"無理なく続けるために、少ない手間で準備できる作り置きのコツを紹介します。",photo:"assets/chicken-tomato-stew.webp",alt:"器に盛りつけた鶏肉のトマト煮",caption:"いつもの主菜を作るときに、翌日の準備も少しだけ。",tips:[["1　作るものを絞る","最初はいつもの主菜と、野菜の下ごしらえ一つから。無理なく続けられる量を選びます。"],["2　準備の手間をまとめる","料理に使う野菜を切るときに、次に使う分の準備も一緒に。調理台を使う時間をまとめられます。"],["3　作った日が分かるようにする","容器に作った日を書いておくと、冷蔵庫を見たときに分かりやすくなります。保存方法や食べる時期も確認しましょう。"]]}
@@ -162,7 +163,7 @@
       if(store.get("l2done")==="1" || !l1Done || !$("feedbackLayer").classList.contains("is-hidden"))return;
       store.set("story",btn.dataset.story);renderStory(btn.dataset.story);
       store.set("l2done",1);setProgress(3);
-      feedback.open({title:"記事を選べました",lead:"選んだ記事の続きを読んでみましょう。",html:"<p>商品やサービスの案内には、『PR』『広告』などの表示が付くことがあります。今回は記事を読む目的で選びました。</p>",onClose:()=>{hide($("recipeContent"));hide(l2Section);show(l3Section);$("instructionBox").textContent="選んだ記事を読み進めてください。";showL3Bar();scrollToEl(l3Section);}});
+      feedback.open({title:"記事を選べました",lead:"商品やサービスの案内には「PR」「広告」などの表示が付くことがあります。選んだ記事を読んでみましょう。",html:"",button:"選んだ記事を読む",onClose:()=>{hide($("recipeContent"));hide(l2Section);show(l3Section);$("instructionBox").textContent="選んだ記事を読み進めてください。";showL3Bar();scrollToEl(l3Section);}});
     }));
 
     const l3Bar=$("lesson3Bar"), l3Close=$("closeLesson3Bar"), l4Button=$("openLesson4Button");
@@ -170,10 +171,8 @@
     function showL3Bar(){ if(!l3Done && store.get("l3closed")!=="1"){show(l3Bar);document.body.classList.add("has-bottom-panel");} }
     function completeL3(mode){
       if(l3Done)return; l3Done=true; store.set("l3done",1); hide(l3Bar); document.body.classList.remove("has-bottom-panel"); setProgress(4);
-      const message=mode==="close" ? "邪魔な広告を閉じられました。" : "広告を残したまま、そのまま記事を読めました。";
-      const point=mode==="close" ? "邪魔な広告は、×で閉じられることがあります。ただし、必ず閉じなければいけないわけではありません。" : "画面下の広告は、気にならなければそのまま読み進めても大丈夫です。";
       hide($("lesson3ContinueButton"));show($("lesson3Finish"));show(l4Button);
-      feedback.open({title:"できました！",lead:message,html:`<strong>今回のポイント</strong><p>${point}</p>`,onClose:()=>scrollToEl($("lesson3Finish"))});
+      feedback.open({title:"記事の続きを開けました",lead:"邪魔なら閉じても、本文が読めるなら残してもかまいません。どちらでも記事を読み進められます。",html:"",button:"記事の続きへ",onClose:()=>scrollToEl($("lesson3Finish"))});
     }
     l3Close?.addEventListener("click",()=>{
       if(l3Done)return;store.set("l3closed",1);hide(l3Bar);document.body.classList.remove("has-bottom-panel");
@@ -183,22 +182,22 @@
       if(l3Section.classList.contains("is-hidden") || !$("feedbackLayer").classList.contains("is-hidden"))return;
       completeL3(store.get("l3closed")==="1" ? "close" : "ignore");
     });
-    document.querySelectorAll("[data-lesson3-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは開いてもかまいません。",html:"<p>今回は記事を読む練習です。記事に戻って、続きを読み進めてみましょう。</p>",button:"記事に戻る"})));
+    document.querySelectorAll("[data-lesson3-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは、広告を開いてもかまいません。今回は記事を読む練習です。記事に戻って、続きを読みましょう。",html:"",button:"記事に戻る"})));
 
     const l4Layer=$("lesson4Layer"), l4Close=$("closeLesson4Button"), transition=$("siteATransition");
-    l4Button?.addEventListener("click",()=>{ if(!l3Done || !$("feedbackLayer").classList.contains("is-hidden"))return;openScenarioLayer(l4Layer,l4Close); });
-    document.querySelectorAll("[data-lesson4-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"今回は、記事の続きを読む練習です。",html:"<p>商品を見たいときは広告を開いてもかまいません。記事へ戻るための『×』を探してみましょう。</p>",button:"練習画面に戻る"})));
+    l4Button?.addEventListener("click",()=>{ if(!l3Done || !$("feedbackLayer").classList.contains("is-hidden"))return;$("instructionBox").textContent="「味つけの基本」の記事を開いて読んでください。";openScenarioLayer(l4Layer,l4Close); });
+    document.querySelectorAll("[data-lesson4-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは、広告を開いてもかまいません。今回は記事を読む練習です。広告画面に戻って、記事へ戻れる操作を探しましょう。",html:"",button:"広告画面に戻る"})));
     l4Close?.addEventListener("click",()=>{
       if(l4Layer.classList.contains("is-hidden") || !$("feedbackLayer").classList.contains("is-hidden"))return;
       closeScenarioLayer(l4Layer); store.set("l4done",1); setProgress(5);
-      feedback.open({title:"閉じられました！",lead:"画面をふさぐ普通の広告を閉じて、元のページへ戻れました。",html:"<strong>今回のポイント</strong><p>普通の広告では、『×』や『閉じる』で元のページへ戻れることがあります。</p><p class=\"caution\">※怪しい警告画面では、画面内の×が安全とは限りません。これはLevel 3で練習します。</p>",onClose:()=>{show($("lesson4Article"));show(transition);$("instructionBox").textContent="記事へ戻れました。別のサイトの記事も見てみましょう。";scrollToEl($("lesson4Article"));}});
+      feedback.open({title:"広告を閉じられました",lead:"本文を覆っていた普通の広告を閉じられました。開こうとした記事に戻って、読み進めましょう。",html:"",button:"記事に戻る",onClose:()=>{show($("lesson4Article"));show(transition);$("instructionBox").textContent="記事へ戻れました。別のサイトの記事も見てみましょう。";scrollToEl($("lesson4Article"));}});
     });
 
     $("goSiteBButton")?.addEventListener("click",()=>store.set("stage",5));
 
     function restoreMain(s){
       setProgress(s);
-      if(s>=2){l1Done=true;revealL1Finish();show(l2Section);$("instructionBox").textContent="次に読む記事を選んでください。";}
+      if(s>=2){l1Done=true;revealL1Finish();show(l2Section);$("instructionBox").textContent="次に読む記事をひとつ選んでください。";}
       if(s>=3){hide($("recipeContent"));hide(l2Section);renderStory(store.get("story"));show(l3Section);$("instructionBox").textContent="選んだ記事を読み進めてください。";}
       if(s===3 && store.get("l3done")!=="1") showL3Bar();
       if(s>=4){l3Done=true;hide(l3Bar);hide($("lesson3ContinueButton"));show($("lesson3Finish"));show(l4Button);document.body.classList.remove("has-bottom-panel");}
@@ -214,7 +213,7 @@
     function tick(now){
       if(stopped)return;
       const elapsed=Math.min(duration, now-started); const left=Math.max(0, Math.ceil((duration-elapsed)/1000));
-      if(counterEl) counterEl.textContent = counterEl.dataset.format === "clock" ? `0:0${left}` : `あと${left}秒`;
+      if(counterEl) counterEl.textContent = counterEl.dataset.format === "clock" ? `${Math.floor(left/60)}:${String(left%60).padStart(2,"0")}` : `あと${left}秒`;
       if(progressEl) progressEl.style.width = `${Math.min(100,(elapsed/duration)*100)}%`;
       if(elapsed>=duration){ onDone?.(); return; }
       requestAnimationFrame(tick);
@@ -224,41 +223,68 @@
 
   function setupOuting(){
     handleEntry();
-    if(store.get("started")!=="1") { location.replace("index.html"+(new URLSearchParams(location.search).get("teacher")==="1" ? "?teacher=1" : "")); return; }
-    if((Number(store.get("stage"))||1)<5){location.replace("index.html"+(new URLSearchParams(location.search).get("teacher")==="1" ? "?teacher=1" : ""));return;}
+    const teacher=new URLSearchParams(location.search).get("teacher")==="1";
+    if(store.get("started")!=="1" || (Number(store.get("stage"))||1)<5){
+      location.replace("index.html"+(teacher ? "?teacher=1" : ""));return;
+    }
     setupTeacherControls();setupPublisherNavigation();setupScenarioFocus();
     const feedback=makeFeedbackController();
-    const home=$("outingHome"), article=$("outingArticle"), l5Open=$("openLesson5Button"), l5Layer=$("lesson5Layer"), l5Counter=$("lesson5Counter"), l5Close=$("lesson5Close");
-    const l6Open=$("openLesson6Button"), l6Layer=$("lesson6Layer"), l6Counter=$("lesson6Counter"), l6Skip=$("lesson6Skip"), progress=$("videoProgressFill"), complete=$("level1Complete"), instruction=$("outingInstruction");
-    let stop5=null, stop6=null;
-    const stage=Math.max(5,Math.min(6,Number(store.get("stage"))||5)); setProgress(stage);
-
-    if(store.get("l5done")==="1"){hide(home);show(article);instruction.textContent="記事の続きを読んでください。";}
-    if(store.get("l6done")==="1"){hide(home);hide(article);show(complete);setProgress(6);instruction.textContent="Level 1の振り返り";}
-
-    l5Open?.addEventListener("click",()=>{
-      if(home.classList.contains("is-hidden") || !$("feedbackLayer").classList.contains("is-hidden"))return;
-      hide(l5Close);openScenarioLayer(l5Layer); l5Counter.textContent="あと3秒";
-      if(stop5)stop5(); stop5=runCountdown(3,l5Counter,()=>{show(l5Close);l5Counter.textContent="閉じることができます";});
-    });
-    document.querySelectorAll("[data-lesson5-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"今回は記事を読む練習です。",html:"<p>少し待つと『閉じる』が表示されることがあります。落ち着いて、画面の表示を見てみましょう。</p>",button:"練習画面に戻る"})));
+    const home=$("outingHome"),article=$("outingArticle"),packing=$("packingArticle"),complete=$("level1Complete");
+    const instruction=$("outingInstruction");
+    const l5Layer=$("lesson5Layer"),l5Counter=$("lesson5Counter"),l5Close=$("lesson5Close");
+    const l6Layer=$("lesson6Layer"),l6Counter=$("lesson6Counter"),l6Skip=$("lesson6Skip"),progress=$("videoProgressFill");
+    let stop5=null,stop6=null;
+    const ready=()=> $("feedbackLayer").classList.contains("is-hidden");
+    function showView(view,move=true){
+      [home,article,packing,complete].forEach(hide);
+      const target={home,route:article,packing,complete}[view]||home;
+      show(target);store.set("outingView",view);
+      instruction.textContent=view==="home" ? "「紅葉を楽しめる日帰り散歩コース」の記事を開いてください。" : view==="route" ? "散歩の記事を読み進めてください。" : view==="packing" ? "持ち物の記事を読んでください。" : "Level 1の振り返り";
+      if(move) window.scrollTo({top:0,behavior:"auto"});
+    }
+    function open5(){
+      if(!ready())return;
+      if(store.get("l5done")==="1"){showView("route");return;}
+      store.set("outingView","scene5");hide(l5Close);l5Counter.textContent="あと10秒";
+      openScenarioLayer(l5Layer);
+      if(stop5)stop5();
+      stop5=runCountdown(10,l5Counter,()=>{show(l5Close);l5Counter.textContent="閉じることができます";});
+    }
+    function open6(){
+      if(!ready() || store.get("l5done")!=="1")return;
+      if(store.get("l6done")==="1"){showView("packing");return;}
+      store.set("outingView","scene6");instruction.textContent="「日帰り旅行の持ちもの」の記事を開いてください。";
+      hide(l6Skip);progress.style.width="0%";l6Counter.dataset.format="clock";l6Counter.textContent="0:10";
+      openScenarioLayer(l6Layer);
+      if(stop6)stop6();
+      stop6=runCountdown(10,l6Counter,()=>{show(l6Skip);l6Counter.textContent="スキップできます";progress.style.width="100%";},progress);
+    }
+    $("openLesson5Button")?.addEventListener("click",()=>{if(home.classList.contains("is-hidden"))return;open5();});
+    $("openLesson6Button")?.addEventListener("click",()=>{if(article.classList.contains("is-hidden"))return;open6();});
+    document.querySelectorAll("[data-lesson5-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは、広告を開いてもかまいません。今回は記事を読む練習です。広告画面に戻って、表示の変化を見てみましょう。",html:"",button:"広告画面に戻る"})));
+    document.querySelectorAll("[data-lesson6-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"商品を見たいときは、広告を開いてもかまいません。今回は記事を読む練習です。広告画面に戻って、表示の変化を見てみましょう。",html:"",button:"広告画面に戻る"})));
     l5Close?.addEventListener("click",()=>{
-      if(l5Layer.classList.contains("is-hidden") || l5Close.classList.contains("is-hidden") || !$("feedbackLayer").classList.contains("is-hidden"))return;
-      if(stop5)stop5(); closeScenarioLayer(l5Layer); store.set("l5done",1); setProgress(6);
-      feedback.open({title:"待てました！",lead:"すぐには閉じられない広告でも、少し待ってから閉じることができました。",html:"<strong>今回のポイント</strong><p>広告は、すぐに閉じる場所が表示されないことがあります。慌てて画面を押さず、少し待つと操作できるようになる場合があります。</p><p class=\"caution\">待ち時間は広告によって違います。</p>",onClose:()=>{hide(home);show(article);instruction.textContent="記事の続きを読んでください。";window.scrollTo({top:0,behavior:"smooth"});}});
+      if(l5Layer.classList.contains("is-hidden") || l5Close.classList.contains("is-hidden") || !ready())return;
+      if(stop5)stop5();closeScenarioLayer(l5Layer);store.set("l5done",1);setProgress(6);store.set("outingView","route");
+      feedback.open({title:"「閉じる」を使えました",lead:"すぐ閉じられない広告でも、少し待つと「閉じる」が現れることがあります。開こうとした記事へ戻れます。",html:"",button:"記事を読む",onClose:()=>showView("route")});
     });
-
-    l6Open?.addEventListener("click",()=>{
-      if(article.classList.contains("is-hidden") || store.get("l5done")!=="1" || !$("feedbackLayer").classList.contains("is-hidden"))return;
-      hide(l6Skip);openScenarioLayer(l6Layer);progress.style.width="0%";l6Counter.dataset.format="clock";l6Counter.textContent="0:05";
-      if(stop6)stop6();stop6=runCountdown(5,l6Counter,()=>{show(l6Skip);l6Counter.textContent="スキップできます";progress.style.width="100%";},progress);
-    });
-    document.querySelectorAll("[data-lesson6-hit]").forEach(el=>el.addEventListener("click",()=>feedback.open({kind:"info",symbol:"i",title:"広告の部分を押しました",lead:"今回は記事の続きを読む練習です。",html:"<p>少し待つと『広告をスキップ』が表示されることがあります。表示を見てみましょう。</p>",button:"練習画面に戻る"})));
     l6Skip?.addEventListener("click",()=>{
-      if(l6Layer.classList.contains("is-hidden") || l6Skip.classList.contains("is-hidden") || !$("feedbackLayer").classList.contains("is-hidden"))return;
-      if(stop6)stop6();closeScenarioLayer(l6Layer);store.set("l6done",1);store.set("stage",6);
-      feedback.open({title:"スキップできました！",lead:"表示されるまで待って、広告をスキップできました。",html:"<strong>今回のポイント</strong><p>動画広告は、数秒待つと『スキップ』が表示されることがあります。</p><p class=\"caution\">すべての広告にスキップがあるわけではなく、待ち時間や閉じ方も広告によって違います。</p>",button:"Level 1のまとめを見る",onClose:()=>{hide(article);show(complete);instruction.textContent="Level 1の振り返り";window.scrollTo({top:0,behavior:"smooth"});}});
+      if(l6Layer.classList.contains("is-hidden") || l6Skip.classList.contains("is-hidden") || !ready())return;
+      if(stop6)stop6();closeScenarioLayer(l6Layer);store.set("l6done",1);setProgress(6);store.set("outingView","packing");
+      feedback.open({title:"スキップを使えました",lead:"少し待つと「広告をスキップ」が現れることがあります。開こうとした記事へ進みましょう。",html:"",button:"記事を読む",onClose:()=>showView("packing")});
     });
+    $("finishLevel1Button")?.addEventListener("click",()=>{
+      if(!ready() || packing.classList.contains("is-hidden") || store.get("l6done")!=="1")return;showView("complete");
+    });
+    document.querySelectorAll("[data-outing-home]").forEach(link=>link.addEventListener("click",event=>{event.preventDefault();if(ready())showView("home");}));
+    const view=store.get("outingView");
+    setProgress(store.get("l5done")==="1" ? 6 : 5);
+    if(store.get("l6done")==="1"){
+      // Old Beta 03 completions have no view key; keep them completed.
+      showView(view==="packing" ? "packing" : view==="home" ? "home" : view==="route" ? "route" : "complete",false);
+    }else if(store.get("l5done")==="1"){
+      showView(view==="home" ? "home" : "route",false);if(view==="scene6")open6();
+    }else{showView("home",false);if(view==="scene5")open5();}
   }
 
   if(page==="main") setupMain();

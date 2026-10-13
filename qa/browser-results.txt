@@ -1,0 +1,103 @@
+PASS 受講者画面で講師リセット非表示
+PASS Site A 本文 320px: 横方向に収まる
+PASS Site A 本文 375px: 横方向に収まる
+PASS Site A 本文 390px: 横方向に収まる
+PASS Site A 本文 430px: 横方向に収まる
+PASS Site A 本文 844px: 横方向に収まる
+PASS Site A 本文 1280px: 横方向に収まる
+PASS L1-1: スクロールだけで完了しない
+PASS L1-1: 中立的な広告説明
+PASS 説明中は背景を操作できない
+PASS 短い説明に空の説明枠を出さない
+PASS 説明のフォーカスを保持
+PASS 中立説明 320px: 横方向に収まる
+PASS 中立説明 375px: 横方向に収まる
+PASS 中立説明 390px: 横方向に収まる
+PASS 中立説明 430px: 横方向に収まる
+PASS 中立説明 844px: 横方向に収まる
+PASS 中立説明 1280px: 横方向に収まる
+PASS L1-1: 本文操作からL1-2へ
+PASS L1-2: PR選択は進捗を変えない
+PASS L1-2: 選んだ記事の本文を表示
+PASS 関連記事と本文をリロードで復元
+PASS L1-3 固定枠 320px: 横方向に収まる
+PASS L1-3 固定枠 375px: 横方向に収まる
+PASS L1-3 固定枠 390px: 横方向に収まる
+PASS L1-3 固定枠 430px: 横方向に収まる
+PASS L1-3 固定枠 844px: 横方向に収まる
+PASS L1-3 固定枠 1280px: 横方向に収まる
+PASS L1-3閉じる領域44px以上
+PASS L1-3: スクロールだけで完了しない
+PASS L1-3: 閉じるだけで完了しない
+PASS 固定枠を閉じた状態を復元
+PASS L1-4 ポップアップ 320px: 横方向に収まる
+PASS L1-4 ポップアップ 375px: 横方向に収まる
+PASS L1-4 ポップアップ 390px: 横方向に収まる
+PASS L1-4 ポップアップ 430px: 横方向に収まる
+PASS L1-4 ポップアップ 844px: 横方向に収まる
+PASS L1-4 ポップアップ 1280px: 横方向に収まる
+PASS L1-4閉じる領域44px以上
+PASS 全画面より説明が手前に表示
+PASS 説明から広告へ戻った後も背景スクロールを固定
+PASS Site B 一覧 320px: 横方向に収まる
+PASS Site B 一覧 375px: 横方向に収まる
+PASS Site B 一覧 390px: 横方向に収まる
+PASS Site B 一覧 430px: 横方向に収まる
+PASS Site B 一覧 844px: 横方向に収まる
+PASS Site B 一覧 1280px: 横方向に収まる
+PASS Site Bのカテゴリが教材内の読みものを開く
+PASS L1-5: 待機初期は閉じる非表示
+PASS L1-5 全画面 320px: 横方向に収まる
+PASS L1-5 全画面 375px: 横方向に収まる
+PASS L1-5 全画面 390px: 横方向に収まる
+PASS L1-5 全画面 430px: 横方向に収まる
+PASS L1-5 全画面 844px: 横方向に収まる
+PASS L1-5 全画面 1280px: 横方向に収まる
+PASS L1-5: 約10秒後に出口表示 (10480ms)
+PASS L1-5閉じる領域44px以上
+PASS L1-5: 開こうとした散歩記事へ戻る
+PASS 散歩記事へ戻ると先頭を表示
+PASS Site B 散歩記事 320px: 横方向に収まる
+PASS Site B 散歩記事 375px: 横方向に収まる
+PASS Site B 散歩記事 390px: 横方向に収まる
+PASS Site B 散歩記事 430px: 横方向に収まる
+PASS Site B 散歩記事 844px: 横方向に収まる
+PASS Site B 散歩記事 1280px: 横方向に収まる
+PASS L1-6: 待機初期はスキップ非表示
+PASS L1-6: 待機中リロードで同じ場面を復元
+PASS 復元直後に0:10から待機再開
+PASS L1-6 動画風 320px: 横方向に収まる
+PASS L1-6 動画風 375px: 横方向に収まる
+PASS L1-6 動画風 390px: 横方向に収まる
+PASS L1-6 動画風 430px: 横方向に収まる
+PASS L1-6 動画風 844px: 横方向に収まる
+PASS L1-6 動画風 1280px: 横方向に収まる
+PASS L1-6: 復元後も約10秒待機 (10169ms)
+PASS スキップ領域44px以上
+PASS スキップ後は持ち物記事へ
+PASS 持ち物記事へ戻ると先頭を表示
+PASS 持ち物記事の表示をリロードで復元
+PASS Site B 持ち物記事 320px: 横方向に収まる
+PASS Site B 持ち物記事 375px: 横方向に収まる
+PASS Site B 持ち物記事 390px: 横方向に収まる
+PASS Site B 持ち物記事 430px: 横方向に収まる
+PASS Site B 持ち物記事 844px: 横方向に収まる
+PASS Site B 持ち物記事 1280px: 横方向に収まる
+PASS 記事の後に振り返りへ
+PASS 振り返り 320px: 横方向に収まる
+PASS 振り返り 375px: 横方向に収まる
+PASS 振り返り 390px: 横方向に収まる
+PASS 振り返り 430px: 横方向に収まる
+PASS 振り返り 844px: 横方向に収まる
+PASS 振り返り 1280px: 横方向に収まる
+PASS 振り返り画面をリロードで復元
+PASS 講師モードでリセット表示
+PASS リセット取消で進捗保持
+PASS 講師リセットで入口へ戻る
+PASS リセット後も講師モード保持
+PASS start=1は教材進捗だけを初期化
+PASS 旧版の完了進捗を維持
+PASS JavaScript/consoleエラーなし []
+PASS 外部リクエストなし []
+PASS 画像・ファイル参照エラーなし []
+TOTAL 102 PASS (Chrome headless; mobile-size emulation, not iPhone Safari / AdGuard / VoiceOver)
