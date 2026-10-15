@@ -111,3 +111,36 @@ html{scroll-padding-top:90px}body{font-size:16px;line-height:1.85;background:#f5
 }
 @media(max-width:360px){.outing-page .outing-home,.outing-page .outing-article{padding-inline:18px}.journal-feature h1{font-size:30px}.journal-feature-link{padding:20px 18px}.journal-feature-link>strong{font-size:21px}.journal-heading{gap:10px}.journal-heading p{font-size:13px}.journal-heading>span{font-size:12px}}
 
+
+/* Training support stays outside the publication and campaign designs. */
+.support-controls{padding:12px 16px;border-bottom:1px solid #d6dfda;background:#f8faf9;color:#3a5148}
+.support-controls>span,.support-stage-tools>span{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.support-controls>div,.support-stage-tools>div{display:flex;gap:8px;flex-wrap:wrap}
+.support-controls button,.support-stage-tools button{min-height:44px;padding:8px 12px;border:1px solid #8fa79b;border-radius:7px;background:white;color:#2d4d40;font-size:16px}
+.support-controls button:disabled{color:#6b746f;border-color:#d3d8d5;background:#f0f2f1}
+.support-stage-tools{position:absolute;z-index:20;top:0;left:0;right:0;min-height:86px;padding:8px 12px;background:#f5f8f6;color:#365346;border-bottom:1px solid #aebfb4;text-align:left}
+.support-stage-tools>div{flex-wrap:nowrap}.support-stage-tools button{min-width:0;flex:1;padding:6px;font-size:16px}
+.support-stage-tools button:disabled{opacity:.6}
+#lesson4Layer{padding-top:100px}.scenario-panel{max-height:calc(100vh - 118px);max-height:calc(100dvh - 118px - env(safe-area-inset-bottom))}
+#lesson5Layer,#lesson6Layer{padding-top:94px}
+.full-screen-campaign{min-height:calc(100vh - 94px);min-height:calc(100dvh - 94px)}
+.video-stage{height:calc(100vh - 94px);height:calc(100dvh - 94px);min-height:296px}
+.support-overlay{z-index:220}.support-overlay .feedback-card{text-align:left}.support-overlay .feedback-card h2{font-size:24px}.support-overlay .feedback-card>p{font-size:18px;line-height:1.85;margin:16px 0 22px;color:#34453d}
+.support-overlay .dual-buttons{grid-template-columns:1fr}.support-overlay button{font-size:17px;min-height:48px}
+.review-complete{max-width:760px;margin:18px auto;padding:20px;background:#eff6f1;border:1px solid #b6cebd;border-radius:10px}.review-complete h2{margin:0;font-size:23px}.review-complete p{font-size:17px}
+.review-menu{margin:26px 0;text-align:left}.review-menu h2{font-size:21px}.review-menu>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}.review-menu button{min-height:52px;padding:10px;border:1px solid #b5c5bd;border-radius:7px;background:#fff;color:#304b3d;text-align:left;font-size:16px}
+@media(max-width:430px){.review-menu>div{grid-template-columns:1fr}.review-complete{margin:14px 12px}.review-complete .dual-buttons{grid-template-columns:1fr}}
+
+:root{--support-space:calc(94px + env(safe-area-inset-top))}
+.support-stage-tools{padding-top:calc(8px + env(safe-area-inset-top))}
+#lesson4Layer{padding-top:calc(var(--support-space) + 6px)}
+.scenario-panel{max-height:calc(100vh - var(--support-space) - 24px);max-height:calc(100dvh - var(--support-space) - 24px - env(safe-area-inset-bottom))}
+#lesson5Layer,#lesson6Layer{padding-top:var(--support-space)}
+.full-screen-campaign{min-height:calc(100vh - var(--support-space));min-height:calc(100dvh - var(--support-space))}
+.video-stage{height:calc(100vh - var(--support-space));height:calc(100dvh - var(--support-space));min-height:0}
+#recipeArticle,#lesson2Section,#lesson3Section,#openLesson4Button,#outingHome,#openLesson6Button{scroll-margin-top:90px}
+
+.support-review-picker{margin-top:12px}.support-review-picker summary{min-height:44px;padding:8px 0;cursor:pointer;font-size:16px}.support-review-picker>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin:8px 0}.support-review-picker button{text-align:left}
+
+.support-controls{position:sticky;top:var(--training-header-height,64px);z-index:44;padding:8px 12px}.support-review-picker{margin:0;padding:0 12px 10px;background:#f8faf9}.support-controls>div{flex-wrap:wrap}.support-controls>span{font-size:14px;margin-bottom:4px}
+#recipeArticle,#lesson2Section,#lesson3Section,#openLesson4Button,#outingHome,#openLesson6Button{scroll-margin-top:calc(var(--training-header-height,64px) + var(--support-panel-height,84px) + 12px)}

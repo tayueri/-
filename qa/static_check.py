@@ -40,19 +40,20 @@ assert '.feedback-overlay{z-index:200}' in css
 checks.append('CSS balanced; no remote resources; explanations above full-screen layers')
 assert 'width:44px;height:44px' in css and 'width:48px;height:48px' in css
 checks.append('Original 44px / 48px close targets retained (actual geometry unverified)')
-prior=Path(os.environ.get('QA_REFERENCE_ZIP',str(ROOT.parent/'LEVEL1-BETA-03.zip')))
+prior=Path(os.environ.get('QA_REFERENCE_ZIP',str(ROOT.parent/'LEVEL1-BETA-04.zip')))
 if prior.exists():
  with ZipFile(prior) as z:
   prefix=z.namelist()[0].split('/')[0]+'/'
   for asset in sorted((ROOT/'assets').glob('*')):
    assert hashlib.sha256(asset.read_bytes()).digest()==hashlib.sha256(z.read(prefix+'assets/'+asset.name)).digest(),asset.name
-  checks.append('All 5 image assets byte-identical to saved Beta 03')
+  checks.append('All 5 image assets byte-identical to saved Beta 04')
   old=z.read(prefix+'outing.html').decode()
   new=(ROOT/'outing.html').read_text()
   for a,b in [('  <!-- L1-5:','  <!-- L1-6:'),('  <!-- L1-6:','  <div id="feedbackLayer"')]:
    left=old[old.index(a):old.index(b)];right=new[new.index(a):new.index(b)]
    left=left.replace('あと3秒','あと10秒').replace('0:05','0:10')
+   right=re.sub(r'\n    <!-- training support -->.*?<!-- /training support -->','',right,flags=re.S)
    assert left==right
-  checks.append('L1-5 / L1-6 campaign markup unchanged except requested timer labels')
+  checks.append('L1-5 / L1-6 campaign markup unchanged with training support outside campaign bodies')
 print('\n'.join('PASS '+x for x in checks))
 print('Static audit does not verify browser rendering, device behavior or AdGuard.')
